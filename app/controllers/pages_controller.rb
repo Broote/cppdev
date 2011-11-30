@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   # GET /pages.xml
   def index
     @pages = Page.all
+    @posts = Post.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -37,14 +38,14 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
   end
 
-  # POST /pages
-  # POST /pages.xml
+  # page /pages
+  # page /pages.xml
   def create
-    @page = Page.new(params[:page])
+    @page = page.new(params[:page])
 
     respond_to do |format|
       if @page.save
-        format.html { redirect_to(@page, :notice => 'Page was successfully created.') }
+        format.html { redirect_to(@page, :notice => 'page was successfully created.') }
         format.xml  { render :xml => @page, :status => :created, :location => @page }
       else
         format.html { render :action => "new" }
@@ -60,7 +61,7 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       if @page.update_attributes(params[:page])
-        format.html { redirect_to(@page, :notice => 'Page was successfully updated.') }
+        format.html { redirect_to(@page, :notice => 'page was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

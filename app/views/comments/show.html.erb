@@ -1,25 +1,47 @@
-<p id="notice"><%= notice %></p>
-
+<%if false%> 
+<p class="notice"><%= notice %></p>
+ 
 <p>
-  <b>User:</b>
-  <%= @comment.user_id %>
+  <b>Title:</b>
+  <%= @post.title %>
 </p>
-
+ 
 <p>
-  <b>Parent:</b>
-  <%= @comment.parent_id %>
+  <b>Content:</b>
+  <%= @post.body %>
 </p>
+ 
+<h2>Comments</h2>
+<% @post.comments.each do |comment| %>
+  <p>
+    <b>Commenter:</b>
+    <%= comment.user.name %>
+  </p>
+ 
+  <p>
+    <b>Comment:</b>
+    <%= comment.body %>
+  </p>
+<% end %>
+ 
+<h2>Add a comment:</h2>
+<%= form_for([@post, @post.comments.build]) do |f| %>
+  <div class="field">
+    <%= f.label :commenter %><br />
+    <%= f.text_field :commenter %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+ 
+<br />
+ 
+<%= link_to 'Edit Post', edit_post_path(@post) %> |
+<%= link_to 'Back to Posts', posts_path %> |
 
-<p>
-  <b>Parent type:</b>
-  <%= @comment.parent_type %>
-</p>
-
-<p>
-  <b>Comment:</b>
-  <%= @comment.comment %>
-</p>
-
-
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<% else  %>
