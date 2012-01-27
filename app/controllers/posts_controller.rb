@@ -1,9 +1,8 @@
 class PostsController < ApplicationController
-  # GET /posts
-  # GET /posts.xml
+  load_and_authorize_resource
   
   def index
-    @posts = Post.all
+    #@posts = Post.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -11,10 +10,8 @@ class PostsController < ApplicationController
     end
   end
 
-  # GET /posts/1
-  # GET /posts/1.xml
   def show
-    @post = Post.find(params[:id])
+    #@post = Post.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -22,27 +19,27 @@ class PostsController < ApplicationController
     end
   end
 
-  # GET /posts/new
-  # GET /posts/new.xml
   def new
-    @post = Post.new
-
+    #@post = Post.new
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @post }
     end
   end
 
-  # GET /posts/1/edit
   def edit
-    @post = Post.find(params[:id])
+    #@post = Post.find(params[:id])
+    #unauthorized! if cannot? :update, @post
   end
 
-  # POST /posts
-  # POST /posts.xml
   def create
-    @post = Post.new(params[:post])
-    @post.user_id=current_user.id
+    #@post = Post.new(params[:post])
+    @post.user=current_user
+    #@attached_file = AttachedFiles.new(params[:attached_file])
+    #@attached_file.parent_id=@post.id
+    #@attached_file.parent_type="post"
+    #@attached_file.save
+    #debugger
     respond_to do |format|
       if @post.save
         format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
@@ -54,10 +51,8 @@ class PostsController < ApplicationController
     end
   end
 
-  # PUT /posts/1
-  # PUT /posts/1.xml
   def update
-    @post = Post.find(params[:id])
+    #@post = Post.find(params[:id])
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
@@ -70,10 +65,8 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.xml
   def destroy
-    @post = Post.find(params[:id])
+    #@post = Post.find(params[:id])
     @post.destroy
 
     respond_to do |format|

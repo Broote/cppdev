@@ -1,9 +1,24 @@
 class CommentsController < ApplicationController
-  def create
-    @post = Post.new(params[:comment])
-    params["comment"]["user_id"]=current_user.id
+  load_and_authorize_resource
+   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(params[:comment])
+    @comment = @post.comments.new(params[:comment])
+    @comment.user = current_user
+    if @comment.save
+      redirect_to post_path(@post)
+    else
+    end
+  end
+
+  def edit
+    @post = Post.find(params[:post_id])
+  end
+
+  def destroy
+    #debugger
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+    @comment.destroy
     redirect_to post_path(@post)
   end
 end

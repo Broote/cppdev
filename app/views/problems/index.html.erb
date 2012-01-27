@@ -1,5 +1,5 @@
 <h1>Listing problems</h1>
-
+<%= render 'users/login' %>
 <table>
   <tr>
     <th>Title</th>
@@ -9,17 +9,18 @@
     <th></th>
   </tr>
 
-<% @problems.each do |problem| %>
-  <tr>
-    <td><%= problem.title %></td>
-    <td><%= problem.problem %></td>
-    <td><%= link_to 'Show', problem %></td>
-    <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
-    <td><%= link_to 'Destroy', problem, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% @problems.each do |problem| %>
+      <tr>
+        <td><%= problem.title %></td>
+        <td><%= problem.problem %></td>
+        <td><%= link_to 'Show', problem %></td>
+        <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
+        <td><%= link_to 'Destroy', problem, :confirm => 'Are you sure?', :method => :delete %></td>
+        <td><%= link_to 'Solve', new_problem_solution_path(problem) %></td>
+      </tr>
+  <% end %>
 </table>
 
-<br />
+<br/>
 
 <%= link_to 'New Problem', new_problem_path %>

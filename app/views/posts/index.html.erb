@@ -1,12 +1,5 @@
 <h1>Listing posts</h1>
-<div id="user_nav">
-  <% if user_signed_in? %>
-    Signed_in as <%= current_user.email %>. Not you?
-    <%= link_to "Signed_out", destroy_user_session_path %>
-  <%  else %>
-    <%= link_to "Signed_up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path%>
-  <%  end %>
-</div>
+<%= render 'users/login' %>
 <table>
   <tr>
     <th>User</th>
@@ -18,19 +11,21 @@
     <th></th>
   </tr>
 
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= post.user.first_name  %></td>
-    <td><%= post.title %></td>
-    <td><%= post.body %></td>
-    <td><%= post.commentable %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.user.first_name %></td>
+        <td><%= post.title %></td>
+        <td><%= post.body %></td>
+        <td><%= post.commentable %></td>
+
+        <td><%= link_to 'Show', post %></td>
+        <% if can? :update, post %>
+            <td><%= link_to 'Edit', edit_post_path(post) %></td>
+            <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+        <% end %>
+      </tr>
+  <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Post', new_post_path %>
+<% if can? :create, Post %>
+    <br/><%= link_to 'New Post', new_post_path %>
+<% end %>

@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111128160928) do
+ActiveRecord::Schema.define(:version => 20111205102143) do
+
+  create_table "attachments", :force => true do |t|
+    t.string   "file_name"
+    t.string   "content_type"
+    t.integer  "uploadable_id"
+    t.string   "uploadable_type"
+    t.float    "file_size"
+    t.datetime "updated_at"
+    t.datetime "created_at"
+  end
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -45,7 +55,7 @@ ActiveRecord::Schema.define(:version => 20111128160928) do
     t.text     "problem"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "points"
+    t.float    "points"
   end
 
   create_table "solutions", :force => true do |t|
@@ -74,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20111128160928) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "role"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,11 +1,13 @@
 Cpp::Application.routes.draw do
+  root :to => "posts#index"
+
   devise_for :users
 
   resources :solutions
 
   resources :pages
 
-  resources :problems
+  #resources :problems
 
   resources :comments
 
@@ -14,6 +16,14 @@ Cpp::Application.routes.draw do
   resources :posts do
     resources :comments
   end
+
+  resources :problems do
+    resources :solutions
+  end
+
+  devise_scope :user do
+    match "/users/sign_up/:initial_role" => 'devise/registrations#new', :as => 'new_user_with_role'
+end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -64,7 +74,6 @@ Cpp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "pages#index"
 
   # See how all your routes lay out with "rake routes"
 

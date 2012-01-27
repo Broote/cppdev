@@ -8,9 +8,11 @@ gem 'mysql2', '< 0.3'
 
 gem 'sqlite3'
 gem 'rake', '0.8.7'
-gem 'ruby-debug', '0.10.4'
+# gem 'ruby-debug', '0.10.4'
+gem 'ruby-debug19'
 gem 'devise'
 gem 'cancan'
+gem 'paperclip'
 
 # Use unicorn as the web server
 # gem 'unicorn'
