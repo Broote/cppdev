@@ -1,0 +1,16 @@
+    <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@post.errors.count, "error") %> prohibited this attach from being saved:</h2>
+
+          <ul>
+            <% @post.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+   <%= f.fields_for :attaches do |a| %>
+      name: <%= a.text_field :name %>
+      attach: <%= a.file_field :upfile %>
+    <% end %>

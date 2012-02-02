@@ -1,60 +1,56 @@
-class PostsController < ApplicationController
+class AttachesController < ApplicationController
   load_and_authorize_resource
   
   def index
-    #@posts = Post.all
+    #@attachs = attach.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @posts }
+      format.xml  { render :xml => @attachs }
     end
   end
 
   def show
-    #@post = Post.find(params[:id])
+    #@attach = attach.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @post }
+      format.xml  { render :xml => @attach }
     end
   end
 
   def new
-    #@post = Post.new
-    @post.attaches = [Attach.new()]
+    #@attach = attach.new
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @post }
+      format.xml  { render :xml => @attach }
     end
   end
 
   def edit
-    #@post = Post.find(params[:id])
-    #unauthorized! if cannot? :update, @post
   end
 
   def create
-    #@post = Post.new(params[:post])
-    @post.user=current_user
+    #@attach = attach.new(params[:post])
+    #@post.user=current_user
     #@attached_file = AttachedFiles.new(params[:attached_file])
     #@attached_file.parent_id=@post.id
     #@attached_file.parent_type="post"
     #@attached_file.save
     #debugger
-    #@post.upfile = params[:post][:upfile]
     respond_to do |format|
-      if @post.save
-        format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
-        format.xml  { render :xml => @post, :status => :created, :location => @post }
+      if @attach.save
+        format.html { redirect_to(@attach, :notice => 'attach was successfully created.') }
+        format.xml  { render :xml => @attach, :status => :created, :location => @attach }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @attach.errors, :status => :unprocessable_entity }
       end
     end
   end
 
   def update
-    #@post = Post.find(params[:id])
+    #@attach = attach.find(params[:id])
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
@@ -69,7 +65,7 @@ class PostsController < ApplicationController
 
   def destroy
     #@post = Post.find(params[:id])
-    @post.destroy
+    @attach.destroy
 
     respond_to do |format|
       format.html { redirect_to(posts_url) }

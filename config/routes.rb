@@ -9,6 +9,8 @@ Cpp::Application.routes.draw do
 
   #resources :problems
 
+  resources :attaches
+  
   resources :comments
 
   resources :users

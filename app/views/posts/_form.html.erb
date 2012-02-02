@@ -26,16 +26,9 @@
       <br/>
       <%= f.check_box :commentable %>
     </div>
-    <div class="field">
-      <%= f.file_field :uploadable %>
-      <br/>
-    </div>
-    <%= f.fields_for :attachments do |upload| %>
-        <div class="attachment">
-          <%= upload.file_field :upload %>
-        </div>
-    <% end %>
+
+    <%= render :partial => "attaches/form", :locals => {:f=>f} %>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit "Submit" %>
     </div>
 <% end %>
