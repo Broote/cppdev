@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/ryanb/nested_form.git
+  revision: 54da3123d9f1b14b37df608794508adccd6ac5ba
+  specs:
+    nested_form (0.1.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -44,6 +50,9 @@ GEM
     hike (1.2.1)
     i18n (0.6.0)
     journey (1.0.1)
+    jquery-rails (2.0.0)
+      railties (>= 3.2.0.beta, < 5.0)
+      thor (~> 0.14)
     json (1.6.5)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
@@ -116,7 +125,9 @@ PLATFORMS
 DEPENDENCIES
   cancan
   devise
+  jquery-rails
   mysql2 (~> 0.3.11)
+  nested_form!
   paperclip
   rails (= 3.2.0)
   rake (= 0.8.7)
