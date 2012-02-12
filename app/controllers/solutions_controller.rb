@@ -1,10 +1,11 @@
 class SolutionsController < ApplicationController
 
   def index
-    @solutions = Solution.all
+    @problem = Problem.find(params[:problem_id])
+    @solutions = @problem.solutions
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.erb                                                           s
       format.xml { render :xml => @solutions }
     end
   end
@@ -38,6 +39,7 @@ class SolutionsController < ApplicationController
     @solution = Solution.new(params[:solution])
     @solution.user = current_user
     @solution.problem = @problem
+    @solution.verified=false
     respond_to do |format|
       if @solution.save
         format.html { redirect_to(problems_path, :notice => 'Solution was successfully sent.') }
@@ -64,12 +66,26 @@ class SolutionsController < ApplicationController
   end
 
   def destroy
-    @solution = Solution.find(params[:id])
+    @problem = Problem.find(params[:problem_id])
+    @solution = @problem.solutions.find(params[:id])
     @solution.destroy
 
     respond_to do |format|
-      format.html { redirect_to(solutions_url) }
+      format.html { redirect_to(problem_solutions_url) }
       format.xml { head :ok }
     end
   end
+
+  def unverified
+    @solutions = Solution.find(:all, :conditions => {:verified => false}, :order => 'updated_at')
+  end
+
+  def verified
+    @solutions = Solution.find(:all, :conditions => {:verified => true}, :order => 'updated_at')
+  end
+
+  def all
+    @solutions = Solution.all
+  end
+
 end

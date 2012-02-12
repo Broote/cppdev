@@ -1,4 +1,5 @@
 class AttachesController < ApplicationController
+
   load_and_authorize_resource
   
   def index
@@ -31,13 +32,6 @@ class AttachesController < ApplicationController
   end
 
   def create
-    #@attach = attach.new(params[:post])
-    #@post.user=current_user
-    #@attached_file = AttachedFiles.new(params[:attached_file])
-    #@attached_file.parent_id=@post.id
-    #@attached_file.parent_type="post"
-    #@attached_file.save
-    #debugger
     respond_to do |format|
       if @attach.save
         format.html { redirect_to(@attach, :notice => 'attach was successfully created.') }

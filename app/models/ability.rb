@@ -6,12 +6,14 @@ class Ability
 
     if user.role=="admin"
       can :manage, :all
-    else
-      can :read, [Post, Comment, Problem]
+    elsif user.role=="user"
+      can :read, [Post, Comment, Problem, User]
       can :create, [Comment, Solution]
-      can :update, Comment do |comment|
+      can :update, [User, Comment] do |comment|
         comment.try(:user) == user
       end
+    else
+      can :read, [Post, Comment, Problem, User]
     end
   end
 end

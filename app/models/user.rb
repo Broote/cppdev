@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
-  #TODO надо ли здесь прописывать has_many comments, posts и т д
+
+  has_many :comments
+  has_many :posts
+  has_many :solutions
   before_create :add_normal_role
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :lockable, :confirmable, :timeoutable and :omniauthable
@@ -7,11 +10,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  #attr_accessible :email, :password, :password_confirmation, :first_name, :last_name, :initial_role, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :first_name, :last_name, :remember_me
 
-  ROLES = %w(admin user)
+  ROLES = %w(admin student user)
 
   def add_normal_role
-    self.role=(ROLES[1])
+    self.role=(ROLES[2])
   end
 end

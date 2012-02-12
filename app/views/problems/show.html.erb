@@ -10,6 +10,18 @@
   <%= @problem.problem %>
 </p>
 
+<p>
+  <b>Points:</b>
+  <%= @problem.points %>
+</p>
+
+<%= link_to "Solve",  new_problem_solution_path(@problem) %>
+
+<h2>Files:</h2>
+<% @problem.attaches.each do |at| %>
+    <%= at.name %> <%= link_to "Download",  at.upfile.url(:original, false) %><br>
+<% end %>
+
 
 <%= link_to 'Edit', edit_problem_path(@problem) %> |
 <%= link_to 'Back', problems_path %>

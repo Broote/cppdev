@@ -1,21 +1,28 @@
-<%= form_for([@problem, @solution]) do |f| %>
-  <% if @solution.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@solution.errors.count, "error") %> prohibited this solution from being saved:</h2>
+<%= nested_form_for([@problem, @solution]) do |f| %>
+    <% if @solution.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@solution.errors.count, "error") %> prohibited this solution from being saved:</h2>
 
-      <ul>
-      <% @solution.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @solution.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <p>problem: <%= @problem.title %><p>
+    <div class="field">
+      <%= f.label :solution %>
+      <br/>
+      <%= f.text_area :solution %>
     </div>
-  <% end %>
-  <%= @problem.title %>
-  <div class="field">
-    <%= f.label :solution %><br />
-    <%= f.text_area :solution %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Send solution"%>
-  </div>
+    <%= f.fields_for :attaches do |at| %>
+        name: <%= at.text_field :name %>
+        <%= at.file_field :upfile %>
+        <%= at.link_to_remove "Remove this attachment" %>
+    <% end %>
+    <%= f.link_to_add "Add attachment", :attaches %>
+    <div class="actions">
+      <%= f.submit "Send solution" %>
+    </div>
 <% end %>

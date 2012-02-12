@@ -14,9 +14,16 @@
         <td><%= problem.title %></td>
         <td><%= problem.problem %></td>
         <td><%= link_to 'Show', problem %></td>
-        <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
-        <td><%= link_to 'Destroy', problem, :confirm => 'Are you sure?', :method => :delete %></td>
-        <td><%= link_to 'Solve', new_problem_solution_path(problem) %></td>
+        <% if can? :update, Problem %>
+            <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
+            <td><%= link_to 'Destroy', problem, :confirm => 'Are you sure?', :method => :delete %></td>
+        <% end %>
+        <% if can? :create, Solution %>
+            <td><%= link_to 'Solve', new_problem_solution_path(problem) %></td>
+        <% end %>
+        <% if can? :read, Solution %>
+            <td><%= link_to 'Solutions', problem_solutions_path(problem) %></td>
+        <% end %>
       </tr>
   <% end %>
 </table>

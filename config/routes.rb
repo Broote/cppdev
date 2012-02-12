@@ -1,16 +1,16 @@
 Cpp::Application.routes.draw do
   root :to => "posts#index"
 
-  devise_for :users
+  devise_for :users,:controllers => { :registrations => "registrations" }
 
-  resources :solutions
+  #resources :solutions
 
   resources :pages
 
   #resources :problems
 
   resources :attaches
-  
+
   resources :comments
 
   resources :users
@@ -25,7 +25,11 @@ Cpp::Application.routes.draw do
 
   devise_scope :user do
     match "/users/sign_up/:initial_role" => 'devise/registrations#new', :as => 'new_user_with_role'
-end
+  end
+
+  match "/solutions/unverified" => "solutions#unverified"
+  match "/solutions/verified" => "solutions#verified"
+  match "/solutions" => "solutions#all"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
-  load_and_authorize_resource
-   def create
+  load_and_authorize_resource :post
+  load_and_authorize_resource :comment, :through => :post
+
+  def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(params[:comment])
     @comment.user = current_user
@@ -15,7 +17,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    #debugger
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     @comment.destroy

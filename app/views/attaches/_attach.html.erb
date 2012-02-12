@@ -1,0 +1,13 @@
+<p>
+  <b>Attachment:</b>
+  <%= attach.name %>
+  <% if can? :update, attach %>
+    <td><%= link_to 'Edit', edit_attach_path(attach) %></td>
+    <td><%= link_to 'Destroy', [attach], :confirm => 'Are you sure?', :method => :delete %></td>
+<% end %>
+</p>
+
+<p>
+  <%= attach.name %>
+  <%= attach.file_field :upfile %>
+</p>

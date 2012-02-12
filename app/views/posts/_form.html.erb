@@ -26,10 +26,10 @@
       <br/>
       <%= f.check_box :commentable %>
     </div>
-    <%= f.fields_for :attaches do |task_form| %>
-        name: <%= task_form.text_field :name %>
-        <%= task_form.file_field :upfile %>
-        <%= task_form.link_to_remove "Remove this attachment" %>
+    <%= f.fields_for :attaches do |at| %>
+        name: <%= at.text_field :name %>
+        <%= at.file_field :upfile %>
+        <%= at.link_to_remove "Remove this attachment" %>
     <% end %>
     <%= f.link_to_add "Add attachment", :attaches %>
     <div class="actions">
