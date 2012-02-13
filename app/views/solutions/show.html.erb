@@ -21,5 +21,21 @@
 </p>
 
 
+<h2>Files:</h2>
+<% @solution.attaches.each do |at| %>
+    <%= at.name %> <%= link_to "Download", at.upfile.url(:original, false) %><br>
+<% end %>
+
+<%= form_for [@problem, @solution] do |f| %>
+    <div class="field">
+      <%= f.label :verify %>
+      <br/>
+      <%= f.check_box :verified %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Send solution" %>
+    </div>
+<% end %>
 <%= link_to 'Edit', edit_problem_solution_path(@problem, @solution) %> |
-<%= link_to 'Back', solutions_path %>
+<%= link_to 'Back', problem_solutions_path %>

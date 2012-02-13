@@ -11,6 +11,7 @@ class SolutionsController < ApplicationController
   end
 
   def show
+    @problem = Problem.find(params[:problem_id])
     @solution = Solution.find(params[:id])
 
     respond_to do |format|
@@ -52,11 +53,12 @@ class SolutionsController < ApplicationController
   end
 
   def update
+    @problem = Problem.find(params[:problem_id])
     @solution = Solution.find(params[:id])
 
     respond_to do |format|
       if @solution.update_attributes(params[:solution])
-        format.html { redirect_to(@solution, :notice => 'Solution was successfully updated.') }
+        format.html { redirect_to([@problem, @solution], :notice => 'Solution was successfully updated.') }
         format.xml { head :ok }
       else
         format.html { render :action => "edit" }
