@@ -33,8 +33,10 @@
       <%= f.check_box :verified %>
     </div>
 
+    <%= f.select(:result, [['не компилируется', 'не компилируется'], ['списано', 'списано'], ['неверно', 'неверно'], ['зачтено', 'зачтено']]) %>
+
     <div class="actions">
-      <%= f.submit "Send solution" %>
+      <%= f.submit "Submit" %>
     </div>
 <% end %>
 <%= link_to 'Edit', edit_problem_solution_path(@problem, @solution) %> |

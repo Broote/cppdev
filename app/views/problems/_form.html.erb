@@ -26,6 +26,11 @@
       <br/>
       <%= f.text_field :points, :size => 2 %>
     </div>
+    <div class="field">
+      <%= f.label :deadline %>
+      <br/>
+      <%= f.text_field :deadline %>
+    </div>
     <%= f.fields_for :attaches do |at| %>
         name: <%= at.text_field :name %>
         <%= at.file_field :upfile %>

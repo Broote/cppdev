@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120202144537) do
+ActiveRecord::Schema.define(:version => 20120213203007) do
 
   create_table "attaches", :force => true do |t|
     t.string   "name"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20120202144537) do
     t.string   "permalink"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "news"
   end
 
   create_table "problems", :force => true do |t|
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20120202144537) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "points"
+    t.date     "deadline"
   end
 
   create_table "solutions", :force => true do |t|
@@ -69,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20120202144537) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "points"
+    t.string   "result"
   end
 
   create_table "users", :force => true do |t|

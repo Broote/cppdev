@@ -1,5 +1,5 @@
 Cpp::Application.routes.draw do
-  root :to => "posts#index"
+  root :to => "posts#news"
 
   devise_for :users,:controllers => { :registrations => "registrations" }
 
@@ -30,6 +30,8 @@ Cpp::Application.routes.draw do
   match "/solutions/unverified" => "solutions#unverified"
   match "/solutions/verified" => "solutions#verified"
   match "/solutions" => "solutions#all"
+
+  match "/news" => "posts#news"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
