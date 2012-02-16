@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  load_and_authorize_resource
+ load_and_authorize_resource :except => [:news]
 
   def index
     respond_to do |format|
@@ -69,6 +69,7 @@ class PostsController < ApplicationController
 
   def news
     @news = Post.find(:all, :conditions => {:news => true})
+    authorize! :read, Post
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @posts }

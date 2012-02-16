@@ -6,7 +6,7 @@ class ChangeDataTypeForProblemPoints < ActiveRecord::Migration
   end
 
   def self.down
-    change_table :widgets do |t|
+    change_table :problems do |t|
       t.change :points, :integer
     end
   end

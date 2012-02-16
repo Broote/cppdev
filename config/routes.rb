@@ -1,7 +1,7 @@
 Cpp::Application.routes.draw do
   root :to => "posts#news"
 
-  devise_for :users,:controllers => { :registrations => "registrations" }
+  devise_for :users#,:controllers => { :registrations => "registrations" }
 
   #resources :solutions
 
