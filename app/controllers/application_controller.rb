@@ -8,11 +8,9 @@ class ApplicationController < ActionController::Base
   end
 
   #TODO
-  if false
-    rescue_from CanCan::AccessDenied do |exception|
-      puts "lallala"
-      flash[:error] = "Access denied."
-      #redirect_to '/users/sign_in'
-    end
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = "Access denied."
+    redirect_to '/users/sign_in'
   end
+
 end

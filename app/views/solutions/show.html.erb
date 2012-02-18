@@ -8,18 +8,18 @@
 <p>
   <b>Problem:</b>
   <%= @solution.problem_id %>
+  <%= @problem.title %><br>
+  <%= @problem.problem %>
 </p>
 
 <p>
   <b>Solution:</b>
   <%= @solution.solution %>
 </p>
-
 <p>
   <b>Verified:</b>
   <%= @solution.verified %>
 </p>
-
 
 <h2>Files:</h2>
 <% @solution.attaches.each do |at| %>
@@ -27,17 +27,12 @@
 <% end %>
 
 <%= form_for [@problem, @solution] do |f| %>
-    <div class="field">
-      <%= f.label :verify %>
-      <br/>
-      <%= f.check_box :verified %>
-    </div>
-
     <%= f.select(:result, [['не компилируется', 'не компилируется'], ['списано', 'списано'], ['неверно', 'неверно'], ['зачтено', 'зачтено']]) %>
 
     <div class="actions">
       <%= f.submit "Submit" %>
     </div>
 <% end %>
+
 <%= link_to 'Edit', edit_problem_solution_path(@problem, @solution) %> |
 <%= link_to 'Back', problem_solutions_path %>

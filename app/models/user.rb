@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :first_name, :last_name, :remember_me
 
-  ROLES = %w(admin student user)
+  ROLES = %w(admin student guest)
 
   def add_normal_role
     self.role=(ROLES[2])

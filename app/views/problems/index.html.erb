@@ -4,7 +4,7 @@
   <tr>
     <th>Title</th>
     <th>Problem</th>
-    <th></th>
+    <th>deadline</th>
     <th></th>
     <th></th>
   </tr>
@@ -13,6 +13,7 @@
       <tr>
         <td><%= problem.title %></td>
         <td><%= problem.problem %></td>
+        <td><%= problem.deadline %></td>
         <td><%= link_to 'Show', problem %></td>
         <% if can? :update, Problem %>
             <td><%= link_to 'Edit', edit_problem_path(problem) %></td>

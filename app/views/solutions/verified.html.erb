@@ -18,7 +18,7 @@
     <td><%= solution.solution %></td>
     <td><%= solution.verified %></td>
     <td><%= link_to 'Show', problem_solution_path(solution.problem, solution) %></td>
-    <td><%= link_to 'Edit', edit_problem_solution_path(@problem, solution) %></td>
+    <td><%= link_to 'Edit', edit_problem_solution_path(solution.problem, solution) %></td>
     <td><%= link_to 'Destroy', problem_solutions_path(@problem) , :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
