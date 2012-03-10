@@ -1,0 +1,16 @@
+<tr>
+  <td><%= truncate(problem.title, :length => 15) %></td>
+  <td><%= truncate(problem.problem, :length => 30) %></td>
+  <td><%= problem.deadline %></td>
+  <td><%= link_to 'Показать', problem %></td>
+  <% if can? :update, Problem %>
+      <td><%= link_to 'Изменить', edit_problem_path(problem) %></td>
+      <td><%= link_to 'Удалить', problem, :confirm => 'Вы уверены?', :method => :delete %></td>
+  <% end %>
+  <% if can? :create, Solution %>
+      <td><%= link_to 'Решить', new_problem_solution_path(problem) %></td>
+  <% end %>
+  <% if can? :read, Solution %>
+      <td><%= link_to 'Решения', problem_solutions_path(problem) %></td>
+  <% end %>
+</tr>

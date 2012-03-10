@@ -2,7 +2,6 @@
     <% if @solution.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@solution.errors.count, "error") %> prohibited this solution from being saved:</h2>
-
           <ul>
             <% @solution.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
@@ -12,17 +11,17 @@
     <% end %>
     <p>problem: <%= @problem.title %><p>
     <div class="field">
-      <%= f.label :solution %>
+      <%= f.label :Решение %>
       <br/>
       <%= f.text_area :solution %>
     </div>
     <%= f.fields_for :attaches do |at| %>
-        name: <%= at.text_field :name %>
+        Название: <%= at.text_field :name %>
         <%= at.file_field :upfile %>
-        <%= at.link_to_remove "Remove this attachment" %>
+        <%= at.link_to_remove "Удалить файл" %>
     <% end %>
-    <%= f.link_to_add "Add attachment", :attaches %>
+    <%= f.link_to_add "Добавить файл", :attaches %>
     <div class="actions">
-      <%= f.submit "Send solution" %>
+      <%= f.submit "Отправить решение" %>
     </div>
 <% end %>

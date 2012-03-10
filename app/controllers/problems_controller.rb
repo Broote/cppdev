@@ -2,8 +2,9 @@ class ProblemsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @problems = Problem.all(:order => "deadline DESC")
-    respond_to do |format|
+    @problems_new = Problem.where("deadline >= ?", Time.now).order("deadline DESC")
+    @problems_past = Problem.where("deadline < ?", Time.now).order("deadline DESC")
+        respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @problems }
     end

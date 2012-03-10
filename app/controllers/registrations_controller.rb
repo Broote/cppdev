@@ -2,8 +2,8 @@ class RegistrationsController < Devise::RegistrationsController
   #before_filter :authenticate_user!, :only => :token
   # не используется
   def new
-      super
-    end
+    super
+  end
 
 
   def create

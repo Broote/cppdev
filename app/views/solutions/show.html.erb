@@ -1,38 +1,47 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>User:</b>
-  <%= @solution.user_id %>
+  <b>Cтудент:</b>
+  <%= @solution.user.first_name + " " + @solution.user.last_name %>
 </p>
 
 <p>
-  <b>Problem:</b>
-  <%= @solution.problem_id %>
+  <b>Задача:</b>
   <%= @problem.title %><br>
   <%= @problem.problem %>
 </p>
 
 <p>
-  <b>Solution:</b>
+  <b>Решение:</b>
   <%= @solution.solution %>
 </p>
 <p>
-  <b>Verified:</b>
-  <%= @solution.verified %>
+  <b>Статус:</b>
+  <% if @solution.verified %>
+      <%= "зачтено" %>
+  <% else %>
+      <%= "не зачтено" %>
+  <% end %>
 </p>
 
-<h2>Files:</h2>
-<% @solution.attaches.each do |at| %>
-    <%= at.name %> <%= link_to "Download", at.upfile.url(:original, false) %><br>
+<% if @solution.attaches.count != 0 %>
+    <h4>Files:</h4>
+    <% @solution.attaches.each do |at| %>
+        <%= at.name %> <%= link_to "Загрузить", at.upfile.url(:original, false) %><br>
+    <% end %>
 <% end %>
 
 <%= form_for [@problem, @solution] do |f| %>
     <%= f.select(:result, [['не компилируется', 'не компилируется'], ['списано', 'списано'], ['неверно', 'неверно'], ['зачтено', 'зачтено']]) %>
-
+    <div class="field">
+      <%= f.label :Баллы %>
+      <br/>
+      <%= f.text_field :points, :size => 2 %>
+    </div>
     <div class="actions">
-      <%= f.submit "Submit" %>
+      <%= f.submit "Подтвердить" %>
     </div>
 <% end %>
 
-<%= link_to 'Edit', edit_problem_solution_path(@problem, @solution) %> |
-<%= link_to 'Back', problem_solutions_path %>
+<%= link_to 'Изменить', edit_problem_solution_path(@problem, @solution) %> |
+<%= link_to 'К решениям задачи', problem_solutions_path %>

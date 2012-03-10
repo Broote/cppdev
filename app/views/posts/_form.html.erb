@@ -12,34 +12,34 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :title %>
+      <%= f.label :Название %>
       <br/>
       <%= f.text_field :title %>
     </div>
     <div class="field">
-      <%= f.label :body %>
+      <%= f.label :Сообщение %>
       <br/>
       <%= f.text_area :body %>
     </div>
     <% if can? :update, @post %>
         <div class="field">
-          <%= f.label :add_to_news %>
+          <%= f.label :Новость %>
           <br/>
           <%= f.check_box :news %>
         </div>
     <% end %>
     <div class="field">
-      <%= f.label :commentable %>
+      <%= f.label "Разрешить комментарии" %>
       <br/>
       <%= f.check_box :commentable %>
     </div>
     <%= f.fields_for :attaches do |at| %>
-        name: <%= at.text_field :name %>
+        Название: <%= at.text_field :name %>
         <%= at.file_field :upfile %>
-        <%= at.link_to_remove "Remove this attachment" %>
+        <%= at.link_to_remove "Удалить файл" %>
     <% end %>
-    <%= f.link_to_add "Add attachment", :attaches %>
+    <%= f.link_to_add "Добавить файл", :attaches %>
     <div class="actions">
-      <%= f.submit "Submit" %>
+      <%= f.submit "Отправить" %>
     </div>
 <% end %>

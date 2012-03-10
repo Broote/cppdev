@@ -1,29 +1,32 @@
-<h1>Listing solutions</h1>
+<h1>Решения</h1>
 
 <table>
   <tr>
-    <th>User</th>
-    <th>Problem</th>
-    <th>Solution</th>
-    <th>Verified</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Студент</th>
+    <th>Задача</th>
+    <th>Решение</th>
+    <th>Статус</th>
   </tr>
 
 <% @solutions.each do |solution| %>
-  <tr>
-    <td><%= solution.user_id %></td>
-    <td><%= solution.problem_id %></td>
-    <td><%= solution.solution %></td>
-    <td><%= solution.verified %></td>
-    <td><%= link_to 'Show', problem_solution_path(@problem, solution) %></td>
-    <td><%= link_to 'Edit', edit_problem_solution_path(@problem, solution) %></td>
-    <td><%= link_to 'Destroy', problem_solutions_path(@problem) , :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+      <tr>
+        <td><%= solution.user.first_name + " " + solution.user.last_name %></td>
+        <td><%= solution.problem.title %></td>
+        <td><%= solution.solution %></td>
+        <td>
+          <% if solution.verified %>
+              <%= "Зачтено" %>
+          <% else %>
+              <%= "Не зачтено" %>
+          <% end %>
+        </td>
+        <td><%= link_to 'Показать', problem_solution_path(solution.problem, solution) %></td>
+        <td><%= link_to 'Изменить', edit_problem_solution_path(@problem, solution) %></td>
+        <td><%= link_to 'Удалить', problem_solutions_path(@problem), :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+  <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Problems', problems_path %>
+<%= link_to 'К списку задач', problems_path %>

@@ -1,6 +1,6 @@
 <%= form_for(@attach, :html => {:multipart => true}) do |f| %>
 <%= render :partial => "attaches/form", :locals => {:f=>f} %>
     <div class="actions">
-      <%= f.submit "Submit" %>
+      <%= f.submit "Отправить" %>
     </div>
 <% end %>

@@ -15,14 +15,14 @@
         <td><%= post.title %></td>
         <td><%= post.commentable %></td>
 
-        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Показать', post %></td>
         <% if can? :update, post %>
-            <td><%= link_to 'Edit', edit_post_path(post) %></td>
-            <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+            <td><%= link_to 'Изменить', edit_post_path(post) %></td>
+            <td><%= link_to 'Удалить', post, :confirm => 'Вы уверены?', :method => :delete %></td>
         <% end %>
       </tr>
   <% end %>
 </table>
 <% if can? :create, Post %>
-    <br/><%= link_to 'New Post', new_post_path %>
+    <br/><%= link_to 'Новое сообщение', new_post_path %>
 <% end %>

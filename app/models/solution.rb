@@ -6,19 +6,25 @@ class Solution < ActiveRecord::Base
   has_many :attaches, :as => :uploadable, :dependent => :destroy
   accepts_nested_attributes_for :attaches, :allow_destroy => true
   before_save do |record|
+    @problem = record.problem
+    @user = record.user
     if record.result == 'зачтено' #Solution::ZACHTENO
-      if record.verified == false
-        @problem = record.problem
-        @user = record.user
-        @user.points += @problem.points
+      if record.verified == false && record.updated_at <= @problem.deadline
+        if record.points
+          @user.points += record.points
+        else
+          @user.points += @problem.points
+        end
         @user.save
       end
       record.verified = true
     else
-      if record.verified == true
-        @user = record.user
-        @problem = record.problem
-        @user.points -= @problem.points
+      if record.verified == true && record.updated_at <= @problem.deadline
+        if record.points
+          @user.points -= record.points
+        else
+          @user.points -= @problem.points
+        end
         @user.save
       end
       record.verified = false
@@ -26,4 +32,3 @@ class Solution < ActiveRecord::Base
     end
   end
 end
-

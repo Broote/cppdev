@@ -2,9 +2,9 @@
 
 <table>
   <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Points</th>
+    <th>Имя</th>
+    <th>Фамилия</th>
+    <th>Баллы</th>
   </tr>
 
   <% @users.each do |user| %>
@@ -12,14 +12,10 @@
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.points %></td>
-        <% if false %>
-            <td><%= link_to 'Edit', edit_user_path(user) %></td>
-            <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+        <% if can? :update, user %>
+            <td><%= link_to 'Изменить', edit_user_path(user) %></td>
+            <td><%= link_to 'Удалить', user, :confirm => 'Вы уверены?', :method => :delete %></td>
         <% end %>
       </tr>
   <% end %>
 </table>
-
-<br/>
-
-<%= link_to 'New User', new_user_path %>

@@ -1,34 +1,33 @@
-<h1>Listing problems</h1>
+<h1>Список задач</h1>
 <%= render 'users/login' %>
 <table>
   <tr>
     <th>Title</th>
     <th>Problem</th>
     <th>deadline</th>
-    <th></th>
-    <th></th>
   </tr>
 
-  <% @problems.each do |problem| %>
-      <tr>
-        <td><%= problem.title %></td>
-        <td><%= problem.problem %></td>
-        <td><%= problem.deadline %></td>
-        <td><%= link_to 'Show', problem %></td>
-        <% if can? :update, Problem %>
-            <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
-            <td><%= link_to 'Destroy', problem, :confirm => 'Are you sure?', :method => :delete %></td>
-        <% end %>
-        <% if can? :create, Solution %>
-            <td><%= link_to 'Solve', new_problem_solution_path(problem) %></td>
-        <% end %>
-        <% if can? :read, Solution %>
-            <td><%= link_to 'Solutions', problem_solutions_path(problem) %></td>
-        <% end %>
-      </tr>
+  <% @problems_new.each do |problem| %>
+      <%= render :partial => "problems/display", :locals => {:problem => problem} -%>
   <% end %>
 </table>
 
-<br/>
+<h3>Old problems:</h3>
 
-<%= link_to 'New Problem', new_problem_path %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Problem</th>
+    <th>deadline</th>
+  </tr>
+  <% @problems_past.each do |problem| %>
+      <%= render :partial => "problems/display", :locals => {:problem => problem} -%>
+  <% end %>
+</table>
+
+
+<% if can? :create, Problem %>
+    <br/>
+
+    <%= link_to 'Новая задача', new_problem_path %>
+<% end %>

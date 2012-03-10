@@ -20,12 +20,12 @@
 
 <h2>Files:</h2>
 <% @post.attaches.each do |at| %>
-    <%= at.name %> <%= link_to "Download", at.upfile.url(:original, false) %><br>
+    <%= at.name %> <%= link_to "Загрузить", at.upfile.url(:original, false) %><br>
 <% end %>
 
 <br/>
 <% if can? :update, Post %>
-    <%= link_to 'Edit Post', edit_post_path(@post) %>
+    <%= link_to 'Изменить', edit_post_path(@post) %>
     <br>
 <% end %>
-<%= link_to 'Back to Posts', posts_path %>
+<%= link_to 'Назад к сообщениям', posts_path %>

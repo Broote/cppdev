@@ -10,10 +10,10 @@
 <body>
 <div id="user_nav">
   <% if user_signed_in? %>
-    Signed_in as <%= current_user.email %>. Not you?
-    <%= link_to "Signed_out", destroy_user_session_path %>
+    Вы авторизованы как <%= current_user.email %>. Не Вы?
+    <%= link_to "Выйти", destroy_user_session_path %>
   <%  else %>
-    <%= link_to "Signed_up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path%>
+    <%= link_to "Зарегистрироваться", new_user_registration_path %> or <%= link_to "Войти", new_user_session_path%>
   <%  end %>
 </div>
 
