@@ -20,6 +20,27 @@ div.field, div.actions {
   margin-bottom: 10px;
 }
 
+#user_nav {
+  position:absolute;
+  right:40px;
+  text-align:right;
+  padding: 7px;
+}
+
+#yield {
+  position:absolute;
+  top:100px;
+  left:300px;
+  padding: 7px;
+}
+
+#right-menu {
+  position:absolute;
+  top:100px;
+  left:0px;
+  padding: 20px;
+}
+
 #notice {
   color: green;
 }

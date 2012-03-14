@@ -72,7 +72,7 @@ class SolutionsController < ApplicationController
     @solution.destroy
 
     respond_to do |format|
-      format.html { redirect_to(problem_solutions_url) }
+      format.html { redirect_to(solutions_path) }
       format.xml { head :ok }
     end
   end
@@ -86,7 +86,13 @@ class SolutionsController < ApplicationController
   end
 
   def all
+    @problem =
     @solutions = Solution.all
+  end
+
+  def mine
+    @user = current_user
+    @solutions = Solution.find(:all, :conditions => {:user_id => @user.id}, :order => 'updated_at')
   end
 
 end

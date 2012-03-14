@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cpp</title>
+  <title>Сайт спецкурса по С++</title>
   <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag 'jquery', 'nested_form', "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application", :defaults %>
@@ -17,7 +17,21 @@
   <% end %>
 </div>
 
-<%= yield %>
+<div id="right-menu">
+  <p><%= link_to "Все задачи", problems_path %></p>
+  <% if user_signed_in? && current_user.role == "student" %>
+      <p><%= link_to "Мои решения", solutions_mine_path %></p>
+  <% end %>
+  <p><%= link_to "Таблица баллов", users_path %></p>
+
+  <p><%= link_to "Новости", news_path %></p>
+
+  <p><%= link_to "Сообщения", posts_path %></p>
+</div>
+
+<div id="yield">
+  <%= yield %>
+</div>
 
 </body>
 </html>

@@ -33,6 +33,8 @@ Cpp::Application.routes.draw do
 
   match "/news" => "posts#news"
 
+  match "/solutions/mine" => "solutions#mine"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
