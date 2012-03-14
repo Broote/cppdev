@@ -3,18 +3,18 @@
 <head>
   <title>Cpp</title>
   <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
-  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag 'jquery', 'nested_form', "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application", :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
 <div id="user_nav">
   <% if user_signed_in? %>
-    Вы авторизованы как <%= current_user.email %>. Не Вы?
-    <%= link_to "Выйти", destroy_user_session_path %>
-  <%  else %>
-    <%= link_to "Зарегистрироваться", new_user_registration_path %> or <%= link_to "Войти", new_user_session_path%>
-  <%  end %>
+      Вы авторизованы как <%= current_user.email %>. Не Вы?
+      <%= link_to "Выйти", destroy_user_session_path %>
+  <% else %>
+      <%= link_to "Зарегистрироваться", new_user_registration_path %> or <%= link_to "Войти", new_user_session_path %>
+  <% end %>
 </div>
 
 <%= yield %>

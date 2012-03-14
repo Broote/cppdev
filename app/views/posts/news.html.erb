@@ -1,6 +1,6 @@
 <h1>Новости</h1>
 
-<% @posts.each do |post| %>
+<% @news.each do |post| %>
     <h3><%= post.title %></h3>
     <p><%= truncate(post.body, :length => 800) %>
       <%= link_to 'Показать', post %></p>
