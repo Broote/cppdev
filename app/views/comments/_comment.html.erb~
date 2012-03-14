@@ -1,0 +1,14 @@
+<p>
+  <b>Commenter:</b>
+  <%= comment.user.first_name %>
+  <%= comment.user.last_name %>
+  <% if can? :update, comment || comment.user==current_user %>
+    <td><%= link_to 'Edit', edit_post_comment_path(@post, comment) %></td>
+    <td><%= link_to 'Destroy', [@post, comment], :confirm => 'Are you sure?', :method => :delete %></td>
+<% end %>
+</p>
+ 
+<p>
+  <b>Comment:</b>
+  <%= comment.body %>
+</p>
