@@ -20,6 +20,17 @@ div.field, div.actions {
   margin-bottom: 10px;
 }
 
+#images {
+  position:absolute;
+  left:0px;
+  height:100px;
+  right:500px;
+  background-image: url("/images/lambda1.png");
+  // background-repeat: round repeat;
+  display: block;
+
+}
+
 #user_nav {
   position:absolute;
   right:40px;

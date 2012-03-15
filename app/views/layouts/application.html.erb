@@ -8,6 +8,8 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+<div id="images">
+</div>
 <div id="user_nav">
   <% if user_signed_in? %>
       Вы авторизованы как <%= current_user.email %>. Не Вы?
@@ -27,6 +29,12 @@
   <p><%= link_to "Новости", news_path %></p>
 
   <p><%= link_to "Сообщения", posts_path %></p>
+
+  <% if can? :create, Problem %>
+      <p><%= link_to "Добавить задачу", new_problem_path %></p>
+      <p><%= link_to "Непроверенные решения", solutions_unverified_path %></p>
+      <p><%= link_to "Все решения", solutions_path %></p>
+  <% end %>
 </div>
 
 <div id="yield">

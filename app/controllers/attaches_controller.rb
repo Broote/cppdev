@@ -1,5 +1,7 @@
 class AttachesController < ApplicationController
 
+  # вместо всего этого paperclip
+
   load_and_authorize_resource
   
   def index
@@ -31,17 +33,17 @@ class AttachesController < ApplicationController
   def edit
   end
 
-  def create
-    respond_to do |format|
-      if @attach.save
-        format.html { redirect_to(@attach, :notice => 'attach was successfully created.') }
-        format.xml  { render :xml => @attach, :status => :created, :location => @attach }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @attach.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
+  #def create
+  #  respond_to do |format|
+  #    if @attach.save
+  #      format.html { redirect_to(@attach, :notice => 'attach was successfully created.') }
+  #      format.xml  { render :xml => @attach, :status => :created, :location => @attach }
+  #    else
+  #      format.html { render :action => "new" }
+  #      format.xml  { render :xml => @attach.errors, :status => :unprocessable_entity }
+  #    end
+  #  end
+  #end
 
   def update
     #@attach = attach.find(params[:id])
