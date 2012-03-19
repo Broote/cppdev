@@ -15,8 +15,8 @@ gem 'cancan'
 gem 'paperclip'
 gem 'jquery-rails'
 gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
-gem 'formtastic'
-gem 'sass'
+# gem 'formtastic'
+# gem 'sass'
 
 # Use unicorn as the web server
 # gem 'unicorn'
