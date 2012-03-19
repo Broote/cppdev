@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  # check_authorization
 
   #before_filter :set_charset
 
@@ -9,8 +10,7 @@ class ApplicationController < ActionController::Base
 
   #TODO
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = "Access denied."
-    redirect_to '/users/sign_in'
+    redirect_to root_url, :alert => exception.message
   end
 
 end

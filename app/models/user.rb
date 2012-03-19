@@ -18,6 +18,6 @@ class User < ActiveRecord::Base
   ROLES = %w(admin student guest)
 
   def add_normal_role
-    self.role=(ROLES[2])
+    self.role=(ROLES[1])
   end
 end

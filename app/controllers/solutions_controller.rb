@@ -1,4 +1,5 @@
 class SolutionsController < ApplicationController
+  load_and_authorize_resource
 
   def index
     @problem = Problem.find(params[:problem_id])

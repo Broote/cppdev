@@ -18,9 +18,9 @@
 <p>
   <b>Статус:</b>
   <% if @solution.verified %>
-      <%= "зачтено" %>
+      <%= "проверено" %>
   <% else %>
-      <%= "не зачтено" %>
+      <%= "не проверено" %>
   <% end %>
 </p>
 
@@ -31,16 +31,18 @@
     <% end %>
 <% end %>
 
-<%= form_for [@problem, @solution] do |f| %>
-    <%= f.select(:result, [['не компилируется', 'не компилируется'], ['списано', 'списано'], ['неверно', 'неверно'], ['зачтено', 'зачтено']]) %>
-    <div class="field">
-      <%= f.label :Баллы %>
-      <br/>
-      <%= f.text_field :points, :size => 2 %>
-    </div>
-    <div class="actions">
-      <%= f.submit "Подтвердить" %>
-    </div>
+<% if current_user.role == "admin" %>
+    <%= form_for [@problem, @solution] do |f| %>
+        <%= f.select(:result, [['не компилируется', 'не компилируется'], ['списано', 'списано'], ['неверно', 'неверно'], ['зачтено', 'зачтено']]) %>
+        <div class="field">
+          <%= f.label :Баллы %>
+          <br/>
+          <%= f.text_field :points, :size => 2 %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Подтвердить" %>
+        </div>
+    <% end %>
 <% end %>
 
 <%= link_to 'Изменить', edit_problem_solution_path(@problem, @solution) %> |

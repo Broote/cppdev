@@ -19,7 +19,7 @@
     <td><%= comment.comment %></td>
     <td><%= link_to 'Показать', comment %></td>
     <td><%= link_to 'Изменить', edit_comment_path(comment) %></td>
-    <td><%= link_to 'Удалить', comment, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Удалить', comment, :confirm => 'Вы уверены?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

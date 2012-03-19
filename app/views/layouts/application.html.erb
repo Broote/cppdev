@@ -4,7 +4,8 @@
   <title>Сайт спецкурса по С++</title>
   <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
   <%= stylesheet_link_tag "application" %>
-  <%= javascript_include_tag 'jquery', 'nested_form', "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application", :defaults %>
+  <%= javascript_include_tag 'jquery', 'nested_form', "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tag %>
 </head>
 <body>
@@ -14,6 +15,9 @@
   <% if user_signed_in? %>
       Вы авторизованы как <%= current_user.email %>. Не Вы?
       <%= link_to "Выйти", destroy_user_session_path %>
+      <br>
+      Количество баллов:
+      <%= current_user.points %>
   <% else %>
       <%= link_to "Зарегистрироваться", new_user_registration_path %> or <%= link_to "Войти", new_user_session_path %>
   <% end %>
@@ -32,7 +36,9 @@
 
   <% if can? :create, Problem %>
       <p><%= link_to "Добавить задачу", new_problem_path %></p>
+
       <p><%= link_to "Непроверенные решения", solutions_unverified_path %></p>
+
       <p><%= link_to "Все решения", solutions_path %></p>
   <% end %>
 </div>

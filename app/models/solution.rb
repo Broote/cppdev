@@ -8,27 +8,25 @@ class Solution < ActiveRecord::Base
   before_save do |record|
     @problem = record.problem
     @user = record.user
-    if record.result == 'зачтено' #Solution::ZACHTENO
-      if record.verified == false && record.updated_at <= @problem.deadline
-        if record.points
-          @user.points += record.points
-        else
-          @user.points += @problem.points
-        end
-        @user.save
+    if record.result == 'зачтено' && record.updated_at <= @problem.deadline
+      # если задача засчитана, то добавляем количество баллов, которое еще не добавлено до нужного уровня
+      if record.points
+        @user.points += record.points - record.points_got
+        record.points_got = record.points
+      else
+        @user.points += @problem.points - record.points_got
+        record.points_got = @problem.points
       end
-      record.verified = true
-    else
-      if record.verified == true && record.updated_at <= @problem.deadline
-        if record.points
-          @user.points -= record.points
-        else
-          @user.points -= @problem.points
-        end
-        @user.save
-      end
+      @user.save
+    elsif record.result != 'зачтено' && record.points_got != 0 && (!record.points_got.nil?)
+      @user.points -= record.points_got
+      record.points_got = 0
+    end
+    @user.save
+    if record.result.nil?
       record.verified = false
-      return true
+    else
+      record.verified = true
     end
   end
 end

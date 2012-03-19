@@ -20,7 +20,7 @@
         </td>
         <td><%= link_to 'Показать', problem_solution_path(solution.problem, solution) %></td>
         <td><%= link_to 'Изменить', edit_problem_solution_path(solution.problem, solution) %></td>
-        <td><%= link_to 'Удалить', [solution.problem, solution], :confirm => 'Are you sure?', :method => :delete %></td>
+        <td><%= link_to 'Удалить', [solution.problem, solution], :confirm => 'Вы уверены?', :method => :delete %></td>
       </tr>
   <% end %>
 </table>
