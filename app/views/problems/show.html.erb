@@ -1,18 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
+  <b>Название:</b>
   <%= @problem.title %>
 </p>
 
 <p>
-  <b>Problem:</b>
+  <b>Задача:</b>
   <%= @problem.problem %>
 </p>
 
 <p>
-  <b>Points:</b>
+  <b>Баллы:</b>
   <%= @problem.points %>
+</p>
+
+<p>
+  <b>Срок сдачи:</b>
+  <%= @problem.deadline %>
 </p>
 
 <%= link_to "Решить",  new_problem_solution_path(@problem) %>
