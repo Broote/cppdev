@@ -4,12 +4,10 @@
     <list default="true" id="5b94f37f-97f4-4e23-aebd-dba72de4f983" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/cpp.iml" afterPath="$PROJECT_DIR$/.idea/cpp.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.sass-cache/8d218dda578c393685aa4d5bcdc7d692a747cd8e/scaffold.css.scssc" afterPath="$PROJECT_DIR$/.sass-cache/8d218dda578c393685aa4d5bcdc7d692a747cd8e/scaffold.css.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/scaffold.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/scaffold.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/formtastic.rb" afterPath="$PROJECT_DIR$/config/initializers/formtastic.rb" />
     </list>
     <ignored path="cpp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,10 +39,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scaffold.css.scss" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="scaffold.css.scss" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/scaffold.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="18" selection-start="535" selection-end="535" vertical-scroll-proportion="0.0">
+            <state line="27" column="18" selection-start="477" selection-end="477" vertical-scroll-proportion="0.6081081">
               <folding />
             </state>
           </provider>
@@ -86,28 +84,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Gemfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="2" selection-start="398" selection-end="398" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="environment.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/environment.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="formtastic.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="formtastic.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/initializers/formtastic.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="45" selection-start="671" selection-end="671" vertical-scroll-proportion="0.4054054">
+            <state line="18" column="45" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -149,9 +129,9 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/views/problems/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/scaffold.css.scss" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/initializers/formtastic.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/scaffold.css.scss" />
       </list>
     </option>
   </component>
@@ -861,11 +841,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -883,16 +858,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/scaffold.css.scss">
+    <entry file="file://$PROJECT_DIR$/config/initializers/formtastic.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="18" selection-start="535" selection-end="535" vertical-scroll-proportion="0.0">
+        <state line="18" column="45" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="2" selection-start="398" selection-end="398" vertical-scroll-proportion="0.0">
+        <state line="18" column="0" selection-start="396" selection-end="396" vertical-scroll-proportion="0.4054054">
           <folding />
         </state>
       </provider>
@@ -904,9 +879,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/formtastic.rb">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="45" selection-start="671" selection-end="671" vertical-scroll-proportion="0.4054054">
+        <state line="4" column="0" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/scaffold.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="18" selection-start="477" selection-end="477" vertical-scroll-proportion="0.6081081">
           <folding />
         </state>
       </provider>
