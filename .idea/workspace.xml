@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5b94f37f-97f4-4e23-aebd-dba72de4f983" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/cpp.iml" afterPath="$PROJECT_DIR$/.idea/cpp.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.sass-cache/8d218dda578c393685aa4d5bcdc7d692a747cd8e/scaffold.css.scssc" afterPath="$PROJECT_DIR$/.sass-cache/8d218dda578c393685aa4d5bcdc7d692a747cd8e/scaffold.css.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/scaffold.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/scaffold.css.scss" />
-    </list>
+    <list default="true" id="5b94f37f-97f4-4e23-aebd-dba72de4f983" name="Default" comment="" />
     <ignored path="cpp.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
