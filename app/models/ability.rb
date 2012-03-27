@@ -8,7 +8,7 @@ class Ability
       can :manage, :all
     elsif user.role=="student"
       can :read, [Post, Comment, Problem, User]
-      can :create, [Post, Comment]
+      can :create, [Post, Comment, Solution]
       can :update, [User, Comment, Post] do |comment|
         comment.try(:user) == user
       end
@@ -16,7 +16,7 @@ class Ability
         sol.try(:user) == user
       end
     else
-      can :read, [Post, Problem, Comment]
+      can :read, [User, Post, Problem, Comment]
     end
   end
 end

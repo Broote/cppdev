@@ -9,16 +9,15 @@
   <b>Content:</b>
   <%= @post.body %>
 </p>
+<% if @post.commentable %>
+    <h2>Комментарии</h2>
+    <%= render @post.comments %>
 
-<h2>Comments</h2>
-<%= render @post.comments %>
-
-<% if can? :create, Comment %>
-    <h2>Add a comment:</h2>
-    <%= render "comments/form" %>
+    <% if can? :create, Comment %>
+        <%= render "comments/form" %>
+    <% end %>
 <% end %>
-
-<h2>Files:</h2>
+<h2>Файлы:</h2>
 <% @post.attaches.each do |at| %>
     <%= at.name %> <%= link_to "Загрузить", at.upfile.url(:original, false) %><br>
 <% end %>

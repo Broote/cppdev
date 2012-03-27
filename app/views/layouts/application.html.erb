@@ -34,6 +34,10 @@
 
   <p><%= link_to "Сообщения", posts_path %></p>
 
+  <% if can? :create, Post %>
+      <%= link_to 'Новое сообщение', new_post_path %>
+  <% end %>
+
   <% if can? :create, Problem %>
       <p><%= link_to "Добавить задачу", new_problem_path %></p>
 

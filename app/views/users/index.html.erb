@@ -1,18 +1,12 @@
-<h1>Listing users</h1>
+<h1>Таблица баллов</h1>
 
-<table>
-  <tr>
-    <th>Имя</th>
-    <th>Фамилия</th>
-    <th>Баллы</th>
-  </tr>
+<table id="users">
 
   <% @users.each do |user| %>
       <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= user.points %></td>
-        <% if can? :update, user %>
+        <td id="first"><%= user.last_name + " " %><%= user.first_name %></td>
+        <td id="second"><%= user.points %></td>
+        <% if can? :update, User %>
             <td><%= link_to 'Изменить', edit_user_path(user) %></td>
             <td><%= link_to 'Удалить', user, :confirm => 'Вы уверены?', :method => :delete %></td>
         <% end %>

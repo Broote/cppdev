@@ -4,11 +4,11 @@
   <%= comment.user.last_name %>
   <% if can? :update, comment || comment.user==current_user %>
     <td><%= link_to 'Изменить', edit_post_comment_path(@post, comment) %></td>
-    <td><%= link_to 'Удалить', [@post, comment], :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Удалить', [@post, comment], :confirm => 'Вы уверены?', :method => :delete %></td>
 <% end %>
 </p>
  
 <p>
-  <b>Comment:</b>
+  <b>Комментарий:</b>
   <%= comment.body %>
 </p>

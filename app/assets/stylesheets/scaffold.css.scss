@@ -51,6 +51,11 @@ div.field, div.actions {
   padding: 20px;
 }
 
+#users {
+  td#first {  width:200px;  }
+  td#second {  width:50px;  }
+}
+
 #notice {
   color: green;
 }

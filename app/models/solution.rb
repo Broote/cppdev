@@ -5,7 +5,13 @@ class Solution < ActiveRecord::Base
   belongs_to :user
   has_many :attaches, :as => :uploadable, :dependent => :destroy
   accepts_nested_attributes_for :attaches, :allow_destroy => true
+
+  before_create do |record|
+    record.points_got = 0
+  end
+
   before_save do |record|
+    if params[verified].nil?
     @problem = record.problem
     @user = record.user
     if record.result == 'зачтено' && record.updated_at <= @problem.deadline
@@ -28,5 +34,6 @@ class Solution < ActiveRecord::Base
     else
       record.verified = true
     end
+    return true
   end
 end

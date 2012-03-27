@@ -8,23 +8,23 @@
     <th>Статус</th>
   </tr>
 
-<% @solutions.each do |solution| %>
+  <% @solutions.each do |solution| %>
       <tr>
         <td><%= solution.user.first_name + " " + solution.user.last_name %></td>
         <td><%= solution.problem.title %></td>
         <td><%= solution.solution %></td>
         <td>
           <% if solution.verified %>
-              <%= "Зачтено" %>
+              <%= "Проверено" %>
           <% else %>
-              <%= "Не зачтено" %>
+              <%= "Не проверено" %>
           <% end %>
         </td>
         <td><%= link_to 'Показать', problem_solution_path(solution.problem, solution) %></td>
-        <td><%= link_to 'Изменить', edit_problem_solution_path(@problem, solution) %></td>
-        <td><%= link_to 'Удалить', problem_solutions_path(@problem), :confirm => 'Are you sure?', :method => :delete %></td>
+        <td><%= link_to 'Изменить', edit_problem_solution_path(solution.problem, solution) %></td>
+        <td><%= link_to 'Удалить', problem_solution_path(solution.problem, solution), :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
   <% end %>
 </table>
 
-<br />
+<br/>

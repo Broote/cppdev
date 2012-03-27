@@ -87,7 +87,6 @@ class SolutionsController < ApplicationController
   end
 
   def all
-    @problem =
     @solutions = Solution.all
   end
 

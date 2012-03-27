@@ -9,7 +9,3 @@
         <td><%= link_to 'Удалить', post, :confirm => 'Вы уверены?', :method => :delete %></td>
     <% end %>
 <% end %>
-
-<% if can? :create, Post %>
-    <br/><%= link_to 'Новое сообщение', new_post_path %>
-<% end %>
