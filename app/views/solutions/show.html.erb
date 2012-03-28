@@ -33,11 +33,17 @@
 
 <% if current_user.role == "admin" %>
     <%= form_for [@problem, @solution] do |f| %>
+        <%= f.hidden_field :lock_version %>
         <%= f.select(:result, [['не компилируется', 'не компилируется'], ['списано', 'списано'], ['неверно', 'неверно'], ['зачтено', 'зачтено']]) %>
         <div class="field">
           <%= f.label :Баллы %>
           <br/>
           <%= f.text_field :points, :size => 2 %>
+        </div>
+        <div class="field">
+          <%= f.label :Проверено %>
+          <br/>
+          <%= f.check_box :verified, :default => true %>
         </div>
         <div class="actions">
           <%= f.submit "Подтвердить" %>

@@ -11,7 +11,6 @@ class Solution < ActiveRecord::Base
   end
 
   before_save do |record|
-    if params[verified].nil?
     @problem = record.problem
     @user = record.user
     if record.result == 'зачтено' && record.updated_at <= @problem.deadline
@@ -29,10 +28,8 @@ class Solution < ActiveRecord::Base
       record.points_got = 0
     end
     @user.save
-    if record.result.nil?
+    if record.result.nil?  # когда только создаем, еще не проверено
       record.verified = false
-    else
-      record.verified = true
     end
     return true
   end

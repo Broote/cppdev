@@ -9,19 +9,14 @@
           </ul>
         </div>
     <% end %>
-    <p>problem: <%= @problem.title %><p>
+    <%= f.hidden_field :lock_version %>
+
+    <p>Задача: <%= @problem.title %><p>
     <div class="field">
       <%= f.label :Решение %>
       <br/>
       <%= f.text_area :solution %>
     </div>
-    <% if can? :create, Problem # только для админов %>
-        <div class="field">
-          <%= f.label :Проверено %>
-          <br/>
-          <%= f.check_box :verified %>
-        </div>
-    <% end %>
     <%= f.fields_for :attaches do |at| %>
         Название: <%= at.text_field :name %>
         <%= at.file_field :upfile %>

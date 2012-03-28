@@ -65,6 +65,9 @@ class SolutionsController < ApplicationController
         format.xml { render :xml => @solution.errors, :status => :unprocessable_entity }
       end
     end
+  rescue ActiveRecord::StaleObjectError
+    @solution.reload
+    render :action => 'conflict'
   end
 
   def destroy
