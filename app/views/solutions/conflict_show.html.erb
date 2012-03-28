@@ -1,0 +1,22 @@
+<h3>Решение устарело</h3>
+
+Пока Вы просматривали решение, кто-то другой изменил его.
+
+<div>
+  <p>Введенные данные:</p>
+
+  <p>
+    <% params[:solution].each do |name, value| %>
+        <% if name == "points" %>
+            <br>Баллы: <%= h value %>
+        <% elsif name == "result" %>
+            <br>Результат: <%= h value %>
+        <% elsif name == "verified" && value == "1" %>
+            <br>Статус: проверено
+        <% elsif name == "verified" && value == "0" %>
+            <br>Статус: Не проверено
+        <% end %>
+    <% end %>
+  </p>
+</div><br>
+<%= render 'form' %>

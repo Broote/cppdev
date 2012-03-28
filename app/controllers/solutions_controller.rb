@@ -66,8 +66,14 @@ class SolutionsController < ApplicationController
       end
     end
   rescue ActiveRecord::StaleObjectError
+    # debugger
+    # p @solution
     @solution.reload
-    render :action => 'conflict'
+    if params[:solution][:verified].nil?
+      render :action => 'conflict_edit'
+    else
+      render :action => 'conflict_show'
+    end
   end
 
   def destroy
@@ -82,14 +88,17 @@ class SolutionsController < ApplicationController
   end
 
   def unverified
+    authorize! :unverified, @user
     @solutions = Solution.find(:all, :conditions => {:verified => false}, :order => 'updated_at')
   end
 
   def verified
+    authorize! :verified, @user
     @solutions = Solution.find(:all, :conditions => {:verified => true}, :order => 'updated_at')
   end
 
   def all
+    authorize! :all, @user
     @solutions = Solution.all
   end
 

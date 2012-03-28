@@ -1,0 +1,15 @@
+<h3>Решение устарело</h3>
+
+Пока Вы модифицировали решение, кто-то другой изменил его. Попробуйте еще раз.
+<div>
+  <p>Введенные данные:</p>
+
+  <p>
+    <% params[:solution].each do |name, value| %>
+        <% unless name == "lock_version" %>
+            Решение: <%= h value %>
+        <% end %>
+    <% end %>
+  </p>
+</div><br>
+<%= render 'form' %>

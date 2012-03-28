@@ -2,6 +2,7 @@ class PostsController < ApplicationController
  load_and_authorize_resource :except => [:news]
 
   def index
+    @posts = Post.find(:all, :order => "updated_at DESC")
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @posts }

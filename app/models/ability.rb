@@ -9,12 +9,11 @@ class Ability
     elsif user.role=="student"
       can :read, [Post, Comment, Problem, User]
       can :create, [Post, Comment, Solution]
-      can :update, [User, Comment, Post] do |comment|
-        comment.try(:user) == user
-      end
-      can :manage, Solution do |sol|
-        sol.try(:user) == user
-      end
+      can [:update, :destroy], [Comment, Post], :user_id => user.id
+      can [:update, :destroy], User, :id => user.id
+      can :manage, Solution, :user_id => user.id
+      cannot [:all, :verified, :unverified], Solution # if false
+      cannot :index, Solution
     else
       can :read, [User, Post, Problem, Comment]
     end

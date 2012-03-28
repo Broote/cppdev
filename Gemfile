@@ -8,8 +8,12 @@ gem "mysql2", "~> 0.3.11"
 
 gem 'sqlite3'
 gem 'rake', '0.8.7'
-# gem 'ruby-debug', '0.10.4'
+source 'https://gems.gemfury.com/8n1rdTK8pezvcsyVmmgJ/'
+
+gem 'linecache19',       '>= 0.5.13'
+gem 'ruby-debug-base19', '>= 0.11.26'
 gem 'ruby-debug19'
+
 gem 'devise'
 gem 'cancan'
 gem 'paperclip'
