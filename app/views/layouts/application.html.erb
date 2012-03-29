@@ -2,7 +2,9 @@
 <html>
 <head>
   <title>Сайт спецкурса по С++</title>
-  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.8/themes/ui-lightness/jquery-ui.css", "application" %>
+  <% if false %>
+      <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.8/themes/ui-lightness/jquery-ui.css", "application" %>
+  <% end %>
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag 'jquery', 'nested_form', "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.8/jquery-ui.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js" %>
   <%= javascript_include_tag "application" %>

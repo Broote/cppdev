@@ -41,6 +41,11 @@
           <%= f.text_field :points, :size => 2 %>
         </div>
         <div class="field">
+          <%= f.label :Комментарий %>
+          <br/>
+          <%= f.text_field :outcome %>
+        </div>
+        <div class="field">
           <%= f.label :Проверено %>
           <br/>
           <%= f.check_box :verified, :default => true %>
@@ -49,6 +54,8 @@
           <%= f.submit "Подтвердить" %>
         </div>
     <% end %>
+ <%else%>
+    <p><b>Комментарий:</b> <%= @solution.outcome %></p>
 <% end %>
 
 <%= link_to 'Изменить', edit_problem_solution_path(@problem, @solution) %> |
