@@ -1,3 +1,4 @@
+#  encoding: utf-8
 class ApplicationController < ActionController::Base
   protect_from_forgery
   # check_authorization
@@ -11,6 +12,11 @@ class ApplicationController < ActionController::Base
   #TODO
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
+  end
+
+  def index
+    @user = current_user
+    @solutions = Solution.find(:all, :conditions => {:user_id => @user.id, :result => "не проверено"})
   end
 
 end
