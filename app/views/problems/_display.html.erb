@@ -10,7 +10,7 @@
   <% if can? :create, Solution %>
       <td><%= link_to 'Решить', new_problem_solution_path(problem) %></td>
   <% end %>
-  <% if can? :read, Solution %>
+  <% if can? :create, Problem %>
       <td><%= link_to 'Решения', problem_solutions_path(problem) %></td>
   <% end %>
 </tr>

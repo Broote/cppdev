@@ -21,46 +21,44 @@
       <p>Количество баллов:
         <%= current_user.points %></p>
 
-      <p>Количество нерешенных задач
-        <% unless @solutions.nil?
-               p @solutions.count
-           else
-               p "0" %></p>
+      <p>Количество непроверенных решений:
+        <% unless @solutions.nil? %>
+            <%= @solutions.count %>
+        <% else %>0
+        <% end %></p>
+  <% else %>
+      <%= link_to "Зарегистрироваться", new_user_registration_path %>
+      or <%= link_to "Войти", new_user_session_path %>
+  <% end %>
+</div>
 
+<div id="right-menu">
+  <p><%= link_to "Все задачи", problems_path %></p>
+  <% if user_signed_in? && current_user.role == "student" %>
+      <p><%= link_to "Мои решения", solutions_mine_path %></p>
+  <% end %>
+  <p><%= link_to "Таблица баллов", users_path %></p>
 
-            <% else %>
-            <%= link_to "Зарегистрироваться", new_user_registration_path %>
-            or <%= link_to "Войти", new_user_session_path %>
-        <% end %>
-        </div>
+  <p><%= link_to "Новости", news_path %></p>
 
-        <div id="right-menu">
-          <p><%= link_to "Все задачи", problems_path %></p>
-          <% if user_signed_in? && current_user.role == "student" %>
-              <p><%= link_to "Мои решения", solutions_mine_path %></p>
-          <% end %>
-          <p><%= link_to "Таблица баллов", users_path %></p>
+  <p><%= link_to "Сообщения", posts_path %></p>
 
-          <p><%= link_to "Новости", news_path %></p>
+  <% if can? :create, Post %>
+      <%= link_to 'Новое сообщение', new_post_path %>
+  <% end %>
 
-          <p><%= link_to "Сообщения", posts_path %></p>
+  <% if can? :create, Problem %>
+      <p><%= link_to "Добавить задачу", new_problem_path %></p>
 
-          <% if can? :create, Post %>
-              <%= link_to 'Новое сообщение', new_post_path %>
-          <% end %>
+      <p><%= link_to "Непроверенные решения", solutions_unverified_path %></p>
 
-          <% if can? :create, Problem %>
-              <p><%= link_to "Добавить задачу", new_problem_path %></p>
+      <p><%= link_to "Все решения", solutions_path %></p>
+  <% end %>
+</div>
 
-              <p><%= link_to "Непроверенные решения", solutions_unverified_path %></p>
+<div id="yield">
+  <%= yield %>
+</div>
 
-              <p><%= link_to "Все решения", solutions_path %></p>
-          <% end %>
-        </div>
-
-        <div id="yield">
-          <%= yield %>
-        </div>
-
-        </body>
-        </html>
+</body>
+</html>

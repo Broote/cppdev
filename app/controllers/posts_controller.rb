@@ -1,3 +1,5 @@
+#  encoding: utf-8
+
 class PostsController < ApplicationController
  load_and_authorize_resource :except => [:news]
 
@@ -35,7 +37,7 @@ class PostsController < ApplicationController
     @post.user=current_user
     respond_to do |format|
       if @post.save
-        format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
+        format.html { redirect_to(@post, :notice => 'Сообщение создано.') }
         format.xml { render :xml => @post, :status => :created, :location => @post }
       else
         format.html { render :action => "new" }
@@ -49,7 +51,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        format.html { redirect_to(@post, :notice => 'Post was successfully updated.') }
+        format.html { redirect_to(@post, :notice => 'Сообщение изменено.') }
         format.xml { head :ok }
       else
         format.html { render :action => "edit" }
@@ -69,7 +71,7 @@ class PostsController < ApplicationController
   end
 
   def news
-    @news = Post.find(:all, :conditions => {:news => true})
+    @news = Post.find(:all, :conditions => {:news => true}, :order => "updated_at DESC")
     authorize! :read, Post
     respond_to do |format|
       format.html # index.html.erb

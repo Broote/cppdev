@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120327234048) do
+ActiveRecord::Schema.define(:version => 20120401104737) do
 
   create_table "attaches", :force => true do |t|
     t.string   "name"
@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(:version => 20120327234048) do
     t.integer  "user_id"
     t.integer  "problem_id"
     t.text     "solution"
-    t.boolean  "verified"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "points"

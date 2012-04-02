@@ -4,7 +4,6 @@
   <tr>
     <th>Студент</th>
     <th>Задача</th>
-    <th>Решение</th>
     <th>Статус</th>
   </tr>
 
@@ -12,14 +11,7 @@
       <tr>
         <td><%= solution.user.first_name + " " + solution.user.last_name %></td>
         <td><%= solution.problem.title %></td>
-        <td><%= solution.solution %></td>
-        <td>
-          <% if solution.verified %>
-              <%= "Зачтено" %>
-          <% else %>
-              <%= "Не зачтено" %>
-          <% end %>
-        </td>
+        <td><%= solution.result %></td>
         <td><%= link_to 'Показать', problem_solution_path(solution.problem, solution) %></td>
         <td><%= link_to 'Изменить', edit_problem_solution_path(solution.problem, solution) %></td>
         <td><%= link_to 'Удалить', problem_solution_path(solution.problem, solution), :confirm => 'Вы уверены?', :method => :delete %></td>

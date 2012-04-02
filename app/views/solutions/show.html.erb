@@ -1,62 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Cтудент:</b>
-  <%= @solution.user.first_name + " " + @solution.user.last_name %>
-</p>
-
-<p>
-  <b>Задача:</b>
-  <%= @problem.title %><br>
-  <%= @problem.problem %>
-</p>
-
-<p>
-  <b>Решение:</b>
-  <%= @solution.solution %>
-</p>
-<p>
-  <b>Статус:</b>
-  <% if @solution.verified %>
-      <%= "проверено" %>
-  <% else %>
-      <%= "не проверено" %>
-  <% end %>
-</p>
-
-<% if @solution.attaches.count != 0 %>
-    <h4>Files:</h4>
-    <% @solution.attaches.each do |at| %>
-        <%= at.name %> <%= link_to "Загрузить", at.upfile.url(:original, false) %><br>
-    <% end %>
-<% end %>
-
-<% if current_user.role == "admin" %>
-    <%= form_for [@problem, @solution] do |f| %>
-        <%= f.hidden_field :lock_version %>
-        <%= f.select(:result, [['не компилируется', 'не компилируется'], ['списано', 'списано'], ['неверно', 'неверно'], ['зачтено', 'зачтено']]) %>
-        <div class="field">
-          <%= f.label :Баллы %>
-          <br/>
-          <%= f.text_field :points, :size => 2 %>
-        </div>
-        <div class="field">
-          <%= f.label :Комментарий %>
-          <br/>
-          <%= f.text_field :outcome %>
-        </div>
-        <div class="field">
-          <%= f.label :Проверено %>
-          <br/>
-          <%= f.check_box :verified, :default => true %>
-        </div>
-        <div class="actions">
-          <%= f.submit "Подтвердить" %>
-        </div>
-    <% end %>
- <%else%>
-    <p><b>Комментарий:</b> <%= @solution.outcome %></p>
-<% end %>
+<%= render 'showform' %>
 
 <%= link_to 'Изменить', edit_problem_solution_path(@problem, @solution) %> |
 <%= link_to 'К решениям задачи', problem_solutions_path %>

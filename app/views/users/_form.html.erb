@@ -25,11 +25,13 @@
       <br/>
       <%= f.text_field :email %>
     </div>
-    <div class="field">
-      <%= f.label :points %>
-      <br/>
-      <%= f.text_field 'points', :size => 2 %>
-    </div>
+    <% if can? :create, Problem %>
+        <div class="field">
+          <%= f.label :points %>
+          <br/>
+          <%= f.text_field 'points', :size => 2 %>
+        </div>
+    <% end %>
     <div class="actions">
       <%= f.submit %>
     </div>

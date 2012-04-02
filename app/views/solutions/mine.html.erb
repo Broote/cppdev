@@ -3,21 +3,13 @@
 <table>
   <tr>
     <th>Задача</th>
-    <th>Решение</th>
     <th>Статус</th>
   </tr>
 
-<% @solutions.each do |solution| %>
+  <% @solutions.each do |solution| %>
       <tr>
         <td><%= solution.problem.title %></td>
-        <td><%= solution.solution %></td>
-        <td>
-          <% if solution.verified %>
-              <%= "Зачтено" %>
-          <% else %>
-              <%= "Не зачтено" %>
-          <% end %>
-        </td>
+        <td><%= solution.result %></td>
         <td><%= link_to 'Показать', problem_solution_path(solution.problem, solution) %></td>
         <td><%= link_to 'Изменить', edit_problem_solution_path(solution.problem, solution) %></td>
         <td><%= link_to 'Удалить', [solution.problem, solution], :confirm => 'Вы уверены?', :method => :delete %></td>
@@ -25,4 +17,4 @@
   <% end %>
 </table>
 
-<br />
+<br/>

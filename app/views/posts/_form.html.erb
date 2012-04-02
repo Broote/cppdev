@@ -22,7 +22,7 @@
       <br/>
       <%= f.text_area :body %>
     </div>
-    <% if can? :update, @post %>
+    <% if can? :create, Problem %>
         <div class="field">
           <%= f.label :Новость %>
           <br/>

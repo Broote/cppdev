@@ -1,3 +1,5 @@
+#  encoding: utf-8
+
 class SolutionsController < ApplicationController
   load_and_authorize_resource
 
@@ -44,7 +46,7 @@ class SolutionsController < ApplicationController
     @solution.verified=false
     respond_to do |format|
       if @solution.save
-        format.html { redirect_to(problems_path, :notice => 'Solution was successfully sent.') }
+        format.html { redirect_to(problems_path, :notice => 'Решение отправлено.') }
         format.xml { render :xml => problems_path, :status => :created, :location => @solution }
       else
         format.html { render :action => "new" }
@@ -58,7 +60,7 @@ class SolutionsController < ApplicationController
     @solution = Solution.find(params[:id])
     respond_to do |format|
       if @solution.update_attributes!(params[:solution])
-        format.html { redirect_to([@problem, @solution], :notice => 'Solution was successfully updated.') }
+        format.html { redirect_to([@problem, @solution], :notice => 'Решение изменено.') }
         format.xml { head :ok }
       else
         format.html { render :action => "edit" }
@@ -89,12 +91,12 @@ class SolutionsController < ApplicationController
 
   def unverified
     authorize! :unverified, @user
-    @solutions = Solution.find(:all, :conditions => {:verified => false}, :order => 'updated_at')
+    @solutions = Solution.find(:all, :conditions => ["result = ?", "не проверено", ], :order => 'updated_at')
   end
 
   def verified
     authorize! :verified, @user
-    @solutions = Solution.find(:all, :conditions => {:verified => true}, :order => 'updated_at')
+    @solutions = Solution.find(:all, :conditions => ["result != ?", "не проверено", ], :order => 'updated_at')
   end
 
   def all
