@@ -1,7 +1,7 @@
 Cpp::Application.routes.draw do
   root :to => "posts#news"
 
-  devise_for :users#,:controllers => { :registrations => "registrations" }
+  devise_for :users #,:controllers => { :registrations => "registrations" }
 
   #resources :solutions
 
@@ -34,6 +34,10 @@ Cpp::Application.routes.draw do
   match "/news" => "posts#news"
 
   match "/solutions/mine" => "solutions#mine"
+
+  devise_scope :user do
+    match '/confirm/:confirmation_token', :to => "devise/confirmations#show", :as => "user_confirm", :only_path => false
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
