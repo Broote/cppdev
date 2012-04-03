@@ -8,6 +8,7 @@ class Solution < ActiveRecord::Base
 
   before_create do |record|
     record.points_got = 0
+    record.result="не проверено"
   end
 
   before_save do |record|
@@ -28,9 +29,6 @@ class Solution < ActiveRecord::Base
       record.points_got = 0
     end
     @user.save
-    if record.result.nil?  # когда только создаем, еще не проверено
-      record.verified = false
-    end
-    return true
   end
+
 end

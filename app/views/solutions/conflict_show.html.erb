@@ -10,9 +10,11 @@
         <% if name == "points" %>
             <br>Баллы: <%= h value %>
         <% elsif name == "result" %>
-            <br>Результат: <%= h value %>
+            <br>Статус: <%= h value %>
+        <% elsif name == "outcome" %>
+            <br>Комментарий: <%= h value %>
         <% end %>
     <% end %>
   </p>
 </div><br>
-<%= render 'form' %>
+<%= render 'showform' %>

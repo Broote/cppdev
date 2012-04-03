@@ -1,0 +1,11 @@
+<tr>
+  <td><%= solution.user.first_name + " " + solution.user.last_name %></td>
+  <td><%= solution.problem.title %></td>
+  <td><%= solution.result %></td>
+  <td><%= convert_time(solution.updated_at) %></td>
+  <td><%= link_to 'Показать', problem_solution_path(solution.problem, solution) %></td>
+  <% unless can? :create, Problem %>
+      <td><%= link_to 'Изменить', edit_problem_solution_path(solution.problem, solution) %></td>
+  <% end %>
+  <td><%= link_to 'Удалить', problem_solution_path(solution.problem, solution), :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>

@@ -7,18 +7,20 @@
     <th>Статус</th>
   </tr>
 
-<% @solutions.each do |solution| %>
+  <% @solutions.each do |solution| %>
       <tr>
         <td><%= solution.user.first_name + " " + solution.user.last_name %></td>
         <td><%= solution.problem.title %></td>
         <td><%= solution.result %></td>
         <td><%= link_to 'Показать', problem_solution_path(solution.problem, solution) %></td>
-        <td><%= link_to 'Изменить', edit_problem_solution_path(solution.problem, solution) %></td>
+        <% unless can? :create, Problem %>
+            <td><%= link_to 'Изменить', edit_problem_solution_path(solution.problem, solution) %></td>
+        <% end %>
         <td><%= link_to 'Удалить', problem_solution_path(solution.problem, solution), :confirm => 'Вы уверены?', :method => :delete %></td>
       </tr>
   <% end %>
 </table>
 
-<br />
+<br/>
 
 <%= link_to 'К списку задач', problems_path %>

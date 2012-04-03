@@ -8,15 +8,25 @@
   <%= @problem.title %><br>
   <%= @problem.problem %>
 </p>
+<p>
+  <b>Максимальный балл за задачу:</b>
+  <%= @problem.points %>
+</p>
 
 <p>
   <b>Решение:</b>
-  <pre><%= @solution.solution %></pre>
+<pre><%= @solution.solution %></pre>
 </p>
 <p>
   <b>Статус:</b>
   <%= @solution.result %>
 </p>
+<% unless @solution.points.nil? %>
+    <p>
+      <b>Баллы:</b>
+      <%= @solution.points %>
+    </p>
+<% end %>
 
 <% if @solution.attaches.count != 0 %>
     <h4>Files:</h4>
@@ -47,3 +57,7 @@
 <% else %>
     <p><b>Комментарий:</b> <%= @solution.outcome %></p>
 <% end %>
+
+
+<%= link_to 'Изменить', edit_problem_solution_path(@problem, @solution) %> |
+<%= link_to 'К решениям задачи', problem_solutions_path %>

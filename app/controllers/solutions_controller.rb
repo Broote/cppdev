@@ -41,9 +41,8 @@ class SolutionsController < ApplicationController
   def create
     @problem = Problem.find(params[:problem_id])
     @solution = Solution.new(params[:solution])
-    @solution.user = current_user
     @solution.problem = @problem
-    @solution.verified=false
+    @solution.user = current_user
     respond_to do |format|
       if @solution.save
         format.html { redirect_to(problems_path, :notice => 'Решение отправлено.') }
@@ -71,7 +70,7 @@ class SolutionsController < ApplicationController
     # debugger
     # p @solution
     @solution.reload
-    if params[:solution][:verified].nil?
+    if params[:solution][:result].nil?
       render :action => 'conflict_edit'
     else
       render :action => 'conflict_show'
@@ -101,7 +100,7 @@ class SolutionsController < ApplicationController
 
   def all
     authorize! :all, @user
-    @solutions = Solution.all
+    @solutions = Solution.find(:all, :order => 'updated_at')
   end
 
   def mine

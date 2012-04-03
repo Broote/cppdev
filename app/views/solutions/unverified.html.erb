@@ -5,17 +5,11 @@
     <th>Студент</th>
     <th>Задача</th>
     <th>Статус</th>
+    <th>Время добавления</th>
   </tr>
 
   <% @solutions.each do |solution| %>
-      <tr>
-        <td><%= solution.user.first_name + " " + solution.user.last_name %></td>
-        <td><%= solution.problem.title %></td>
-        <td><%= solution.result %></td>
-        <td><%= link_to 'Показать', problem_solution_path(solution.problem, solution) %></td>
-        <td><%= link_to 'Изменить', edit_problem_solution_path(solution.problem, solution) %></td>
-        <td><%= link_to 'Удалить', problem_solution_path(solution.problem, solution), :confirm => 'Are you sure?', :method => :delete %></td>
-      </tr>
+      <%= render :partial => 'display', :locals => { :solution => solution }%>
   <% end %>
 </table>
 
