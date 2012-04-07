@@ -1,7 +1,7 @@
 <tr>
-  <td><%= truncate(problem.title, :length => 15) %></td>
-  <td><%= truncate(problem.problem, :length => 50) %></td>
-  <td><%= problem.deadline %></td>
+  <td class="one"><%= truncate(problem.title, :length => 15) %></td>
+  <td class="two"><%= truncate(problem.problem, :length => 80) %></td>
+  <td class="three"><%= problem.deadline %></td>
   <td><%= link_to 'Показать', problem %></td>
   <% if can? :update, Problem %>
       <td><%= link_to 'Изменить', edit_problem_path(problem) %></td>

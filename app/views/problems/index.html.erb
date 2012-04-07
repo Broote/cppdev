@@ -3,27 +3,27 @@
 <script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
 
 <h1>Список задач</h1>
-<table>
+<table class="s-table">
   <tr>
-    <th>Название</th>
-    <th>Условие</th>
-    <th>Срок сдачи</th>
+    <th class="one">Название</th>
+    <th class="two">Условие</th>
+    <th class="three">Срок сдачи</th>
   </tr>
 
   <% @problems_new.each do |problem| %>
-      <%= render :partial => "problems/display", :locals => {:problem => problem} -%>
+      <%= render :partial => "problems/display", :locals => {:problem => problem} %>
   <% end %>
 </table>
 
 <br><h3>Для этих задач срок сдачи уже прошел:</h3>
 
-<table>
+<table class="s-table">
   <tr>
     <th>Название</th>
     <th>Условие</th>
     <th>Срок сдачи</th>
   </tr>
   <% @problems_past.each do |problem| %>
-      <%= render :partial => "problems/display", :locals => {:problem => problem} -%>
+      <%= render :partial => "problems/display", :locals => {:problem => problem} %>
   <% end %>
 </table>

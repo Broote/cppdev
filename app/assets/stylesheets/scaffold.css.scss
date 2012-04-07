@@ -60,6 +60,14 @@ div.field, div.actions {
   color: green;
 }
 
+.s-table {
+  width: 100%;
+  /*td { padding:0px; }*/
+  /*.one { width: 200px; }*/
+  /*.two { width: 50%; }
+  .three { width: 80px; } */
+}
+
 .field_with_errors {
   padding: 2px;
   background-color: red;
