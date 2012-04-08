@@ -83,7 +83,7 @@ class SolutionsController < ApplicationController
     @solution.destroy
 
     respond_to do |format|
-      format.html { redirect_to(solutions_path) }
+      format.html { redirect_to(solutions_mine_path) }
       format.xml { head :ok }
     end
   end

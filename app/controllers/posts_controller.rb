@@ -71,7 +71,7 @@ class PostsController < ApplicationController
   end
 
   def news
-    @news = Post.find(:all, :conditions => {:news => true}, :order => "updated_at DESC")
+    @news = Post.find(:all, :conditions => {:news => true}, :order => "created_at DESC")
     authorize! :read, Post
     respond_to do |format|
       format.html # index.html.erb

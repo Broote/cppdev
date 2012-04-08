@@ -10,7 +10,8 @@ class Ability
     elsif user.role=="student"
       can :read, [Post, Comment, Problem, User]
       can :create, [Post, Comment, Solution]
-      can [:update, :destroy], [Comment, Post], :user_id => user.id
+      can :update, Post, :user_id => user.id
+      can :destroy, [Comment, Post], :user_id => user.id
       can [:update, :destroy], User, :id => user.id
       can :manage, Solution, :user_id => user.id
       cannot [:all, :verified, :unverified], Solution

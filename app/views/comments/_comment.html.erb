@@ -1,14 +1,11 @@
-<p>
-  <b>Автор:</b>
-  <%= comment.user.first_name %>
-  <%= comment.user.last_name %>
-  <% if can? :update, comment || comment.user==current_user %>
-    <td><%= link_to 'Изменить', edit_post_comment_path(@post, comment) %></td>
-    <td><%= link_to 'Удалить', [@post, comment], :confirm => 'Вы уверены?', :method => :delete %></td>
-<% end %>
-</p>
- 
-<p>
-  <b>Комментарий:</b>
-  <%= comment.body %>
-</p>
+<div class="comment"><p>
+  <b><%= comment.user.first_name + " " + comment.user.last_name %></b>
+  <% if can? :destroy, comment || comment.user==current_user %>
+      <td><%= link_to 'Удалить', [@post, comment], :confirm => 'Вы уверены?', :method => :delete %></td>
+  <% end %>
+  </p>
+
+  <p>
+    <%= comment.body %>
+  </p>
+</div>

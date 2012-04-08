@@ -1,22 +1,23 @@
 <p class="notice"><%= notice %></p>
 
 <p>
-  <b>Название:</b>
-  <%= @post.title %>
+<h3><%= @post.title %></h3>
 </p>
 
 <p>
   <%= @post.body %>
 </p>
-<% if @post.commentable %>
-    <h2>Комментарии</h2>
-    <%= render @post.comments %>
 
+<% if @post.commentable %>
+    <br>
+    <h3>Комментарии</h3>
+    <%= render @post.comments %>
+    <br>
     <% if can? :create, Comment %>
         <%= render "comments/form" %>
     <% end %>
-<% end %>
-<h2>Файлы:</h2>
+<% end %><br>
+<h3>Файлы:</h3>
 <% @post.attaches.each do |at| %>
     <%= at.name %> <%= link_to "Загрузить", at.upfile.url(:original, false) %><br>
 <% end %>
