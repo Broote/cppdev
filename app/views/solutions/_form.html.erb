@@ -17,6 +17,7 @@
       <br/>
       <%= f.text_area :solution %>
     </div>
+    <%= f.hidden_field :result, :value=>"не проверено" %>
     <%= f.fields_for :attaches do |at| %>
         Название: <%= at.text_field :name %>
         <%= at.file_field :upfile %>

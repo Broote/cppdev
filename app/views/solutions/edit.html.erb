@@ -1,6 +1,9 @@
 <h1>Изменение решения</h1>
+<% if @solution.result == "зачтено" %>
+    Зачем
+    изменять зачтенное решение?<br><br>
+<% else %>
+    <%= render 'form' %>
+<% end %>
 
-<%= render 'form' %>
-
-<%= link_to 'Показать', [@problem, @solution] %> |
-<%= link_to 'К решениям задачи', problem_solutions_path %>
+<%= link_to 'Показать', [@problem, @solution] %>

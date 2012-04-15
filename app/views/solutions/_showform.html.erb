@@ -60,6 +60,6 @@
     <p><b>Комментарий:</b> <%= @solution.outcome %></p>
 <% end %>
 
-
-<%= link_to 'Изменить', edit_problem_solution_path(@problem, @solution) %> |
-<%= link_to 'К решениям задачи', problem_solutions_path %>
+<% if @solution.result != "зачтено" %>
+    <%= link_to 'Изменить', edit_problem_solution_path(@problem, @solution) %>
+<% end %>

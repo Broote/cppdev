@@ -60,7 +60,12 @@ class SolutionsController < ApplicationController
     @solution = Solution.find(params[:id])
     respond_to do |format|
       if @solution.update_attributes!(params[:solution])
-        format.html { redirect_to([@problem, @solution], :notice => 'Решение изменено.') }
+        format.html {
+          if current_user.role == "student"
+            redirect_to([@problem, @solution], :notice => 'Решение изменено.')
+          else
+            redirect_to(solutions_unverified_path)
+          end }
         format.xml { head :ok }
       else
         format.html { render :action => "edit" }

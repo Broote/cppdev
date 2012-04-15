@@ -11,7 +11,9 @@
         <td><%= solution.problem.title %></td>
         <td><%= solution.result %></td>
         <td><%= link_to 'Показать', problem_solution_path(solution.problem, solution) %></td>
-        <td><%= link_to 'Изменить', edit_problem_solution_path(solution.problem, solution) %></td>
+        <% if solution.result != "зачтено" %>
+            <td><%= link_to 'Изменить', edit_problem_solution_path(solution.problem, solution) %></td>
+        <% end %>
       </tr>
   <% end %>
 </table>
