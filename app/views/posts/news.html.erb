@@ -1,11 +1,21 @@
 <h1>Новости</h1>
 
 <% @news.each do |post| %>
-    <h3><%= post.title %></h3>
-    <p><%= truncate(post.body, :length => 800) %>
-      <%= link_to 'Показать', post %>
-    <% if can? :update, post %>
-        <%= link_to 'Изменить', edit_post_path(post) %>
-        <%= link_to 'Удалить', post, :confirm => 'Вы уверены?', :method => :delete %></p>
-    <% end %>
+    <div class="news">
+      <h3 class="new-title"><%= post.title %></h3>
+
+      <div class="time"><%= posttime(post.created_at) %>
+        <% if post.comments.count != 0 %>
+            <div class="comment-count"><%= post.comments.count %></div>
+        <% end %>
+      </div>
+
+      <div class="body"><%= truncate(post.body, :length => 800) %>
+        <%= link_to 'Показать', post %>
+        <% if can? :update, post %>
+            <%= link_to 'Изменить', edit_post_path(post) %>
+            <%= link_to 'Удалить', post, :confirm => 'Вы уверены?', :method => :delete %>
+        <% end %>
+      </div>
+    </div>
 <% end %>

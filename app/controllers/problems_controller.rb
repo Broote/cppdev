@@ -2,6 +2,7 @@ class ProblemsController < ApplicationController
   load_and_authorize_resource
 
   def index
+    @user = current_user
     @problems_new = Problem.where("deadline >= ?", Time.now).order("deadline DESC")
     @problems_past = Problem.where("deadline < ?", Time.now).order("deadline DESC")
         respond_to do |format|
@@ -11,6 +12,7 @@ class ProblemsController < ApplicationController
   end
 
   def show
+    @user = current_user
     #@problem = Problem.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb

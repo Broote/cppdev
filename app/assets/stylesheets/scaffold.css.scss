@@ -12,6 +12,10 @@ pre {
   font-size: 11px;
 }
 
+h1 {
+  margin-bottom: 30px;
+}
+
 a { color: #000; }
 a:visited { color: #666; }
 a:hover { color: #fff; background-color:#000; }
@@ -70,8 +74,27 @@ div.field, div.actions {
 
 .comment {
   margin: 30px 5px;
-
 }
+
+
+
+.comment-count {
+  background-image:url('comment.png');
+  background-repeat:no-repeat;
+  padding-left: 10px;
+  margin-left:20px;
+  display: inline
+}
+
+.news {
+  margin-bottom:30px;
+  .new-title { margin-bottom:5px; }
+  .time { font-size:10px; display: inline}
+  .body {margin-top: 5px;}
+}
+
+.author { display: inline; margin-right:20px; }
+
 
 .field_with_errors {
   padding: 2px;

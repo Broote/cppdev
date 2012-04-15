@@ -14,13 +14,15 @@
 </p>
 
 <p>
-  <b>Решение:</b>
-<pre><%= @solution.solution %></pre>
-</p>
-<p>
   <b>Статус:</b>
   <%= @solution.result %>
 </p>
+
+<p>
+  <b>Решение:</b>
+<pre><%= @solution.solution %></pre>
+</p>
+
 <% unless @solution.points.nil? %>
     <p>
       <b>Баллы:</b>
@@ -48,13 +50,13 @@
         <div class="field">
           <%= f.label :Комментарий %>
           <br/>
-          <%= f.text_field :outcome %>
+          <%= f.text_area :outcome, :cols => 60, :rows => "10" %>
         </div>
         <div class="actions">
           <%= f.submit "Подтвердить" %>
         </div>
     <% end %>
-<% else %>
+<% elsif !(@solution.outcome.nil?) && @solution.outcome != "" %>
     <p><b>Комментарий:</b> <%= @solution.outcome %></p>
 <% end %>
 

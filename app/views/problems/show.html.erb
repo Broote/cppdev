@@ -19,12 +19,12 @@
   <b>Срок сдачи:</b>
   <%= @problem.deadline %>
 </p>
-
-<%= link_to "Решить",  new_problem_solution_path(@problem) %>
-
-<h2>Files:</h2>
+<% if (can? :create, Solution) && (my_sol_count(@problem) == 0) %>
+    <%= link_to "Решить", new_problem_solution_path(@problem) %>
+<% end %>
+<h2>Файлы:</h2>
 <% @problem.attaches.each do |at| %>
-    <%= at.name %> <%= link_to "Загрузить",  at.upfile.url(:original, false) %><br>
+    <%= at.name %> <%= link_to "Загрузить", at.upfile.url(:original, false) %><br>
 <% end %>
 
 

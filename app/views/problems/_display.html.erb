@@ -2,15 +2,15 @@
   <td class="one"><%= truncate(problem.title, :length => 15) %></td>
   <td class="two"><%= truncate(problem.problem, :length => 80) %></td>
   <td class="three"><%= problem.deadline %></td>
-  <td><%= link_to 'Показать', problem %></td>
+  <td><%= link_to 'Показать', problem %><%=  %></td>
   <% if can? :update, Problem %>
       <td><%= link_to 'Изменить', edit_problem_path(problem) %></td>
       <td><%= link_to 'Удалить', problem, :confirm => 'Вы уверены?', :method => :delete %></td>
   <% end %>
-  <% if can? :create, Solution %>
+  <% if (can? :create, Solution) && (my_sol_count(problem) == 0) %>
       <td><%= link_to 'Решить', new_problem_solution_path(problem) %></td>
   <% end %>
-  <% if can? :create, Problem %>
+  <% if (can? :create, Problem) %>
       <td><%= link_to 'Решения', problem_solutions_path(problem) %></td>
   <% end %>
 </tr>

@@ -15,7 +15,7 @@ class Ability
       can [:update, :destroy], User, :id => user.id
       can :manage, Solution, :user_id => user.id
       cannot [:all, :verified, :unverified], Solution
-      cannot :index, Solution
+      cannot [:index, :destroy], Solution
     else
       can :read, [User, Post, Problem, Comment]
     end

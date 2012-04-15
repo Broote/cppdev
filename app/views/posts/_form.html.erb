@@ -28,18 +28,18 @@
           <br/>
           <%= f.check_box :news %>
         </div>
+        <div class="field">
+          <%= f.label "Разрешить комментарии" %>
+          <br/>
+          <%= f.check_box :commentable %>
+        </div>
     <% end %>
-    <div class="field">
-      <%= f.label "Разрешить комментарии" %>
-      <br/>
-      <%= f.check_box :commentable %>
-    </div>
     <%= f.fields_for :attaches do |at| %>
         Название: <%= at.text_field :name %>
         <%= at.file_field :upfile %>
         <%= at.link_to_remove "Удалить файл" %>
     <% end %>
-    <%= f.link_to_add "Добавить файл", :attaches %>
+    <%= f.link_to_add "Добавить файл", :attaches %><br><br>
     <div class="actions">
       <%= f.submit "Отправить" %>
     </div>

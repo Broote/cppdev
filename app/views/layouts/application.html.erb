@@ -17,15 +17,13 @@
   <% if user_signed_in? %>
       <p>Вы авторизованы как <%= current_user.email %>. Не Вы?
         <%= link_to "Выйти", destroy_user_session_path %></p>
+      <% if current_user.role == "student" %>
+          <p>Количество баллов:
+            <%= current_user.points %></p>
 
-      <p>Количество баллов:
-        <%= current_user.points %></p>
-
-      <p>Количество непроверенных решений:
-        <% unless @solutions.nil? %>
-            <%= @solutions.count %>
-        <% else %>0
-        <% end %></p>
+          <p>Количество непроверенных решений:
+            <%= sol_number %> </p>
+      <% end %>
   <% else %>
       <%= link_to "Зарегистрироваться", new_user_registration_path %>
       or <%= link_to "Войти", new_user_session_path %>

@@ -1,5 +1,9 @@
 <h1>Новое решение</h1>
 
-<%= render 'form' %>
+<% if (my_sol_count(@problem) == 0) %>
+    <%= render 'form' %>
+<% else %>
+    Для этой задачи Вами уже отправлено решение
+<% end %>
 
 <%= link_to 'К списку задач', problems_path %>

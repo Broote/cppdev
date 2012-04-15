@@ -24,6 +24,7 @@ class SolutionsController < ApplicationController
   end
 
   def new
+    @user = current_user
     @problem = Problem.find(params[:problem_id])
     @solution = @problem.solutions.new
 
@@ -67,8 +68,6 @@ class SolutionsController < ApplicationController
       end
     end
   rescue ActiveRecord::StaleObjectError
-    # debugger
-    # p @solution
     @solution.reload
     if params[:solution][:result].nil?
       render :action => 'conflict_edit'
@@ -83,19 +82,24 @@ class SolutionsController < ApplicationController
     @solution.destroy
 
     respond_to do |format|
-      format.html { redirect_to(solutions_mine_path) }
+      format.html {
+        unless current_user.role == "admin"
+          redirect_to(solutions_mine_path)
+        else
+          redirect_to(solutions_unverified_path)
+        end }
       format.xml { head :ok }
     end
   end
 
   def unverified
     authorize! :unverified, @user
-    @solutions = Solution.find(:all, :conditions => ["result = ?", "не проверено", ], :order => 'updated_at')
+    @solutions = Solution.find(:all, :conditions => ["result = ?", "не проверено",], :order => 'updated_at')
   end
 
   def verified
     authorize! :verified, @user
-    @solutions = Solution.find(:all, :conditions => ["result != ?", "не проверено", ], :order => 'updated_at')
+    @solutions = Solution.find(:all, :conditions => ["result != ?", "не проверено",], :order => 'updated_at')
   end
 
   def all
@@ -105,7 +109,7 @@ class SolutionsController < ApplicationController
 
   def mine
     @user = current_user
-    @solutions = Solution.find(:all, :conditions => {:user_id => @user.id}, :order => 'updated_at')
+    @solutions = Solution.find(:all, :conditions => {:user_id => @user.id}, :order => 'updated_at DESC')
   end
 
 end
