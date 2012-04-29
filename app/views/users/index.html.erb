@@ -4,7 +4,7 @@
 
   <% @users.each do |user| %>
       <tr>
-        <td id="first"></td>
+        <td id="first"><%= user.last_name + " " %><%= user.first_name %></td>
         <td id="second"><%= user.points %></td>
         <% if current_user.id == user.id || current_user.role == "admin" %>
             <td><%= link_to 'Изменить', edit_user_path(user) %></td>
