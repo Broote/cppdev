@@ -1,6 +1,7 @@
 #  encoding: utf-8
 class Solution < ActiveRecord::Base
   #ZACHTENO = 'зачтено'
+  validates :solution, :presence => true
   belongs_to :problem
   belongs_to :user
   has_many :attaches, :as => :uploadable, :dependent => :destroy

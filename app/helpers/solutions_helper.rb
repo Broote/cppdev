@@ -34,4 +34,8 @@ module SolutionsHelper
         return "Декабря"
     end
   end
+
+  def conv(str)
+    return str.strftime("%d ") + convert_month(str.strftime("%B")) + str.strftime(" %Y")
+  end
 end

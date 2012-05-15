@@ -25,6 +25,8 @@
     <% end %>
     <%= f.link_to_add "Добавить файл", :attaches %><br><br>
     <div class="actions">
-      <%= f.submit "Отправить решение" %>
+      <% if params[:action] == "edit" %><%= f.submit "Сохранить решение" %>
+      <% else %> <%= f.submit "Отправить решение" %>
+      <% end %>
     </div>
 <% end %>
