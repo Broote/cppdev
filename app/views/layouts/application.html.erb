@@ -30,29 +30,29 @@
   <% end %>
 </div>
 
-<div id="right-menu">
-  <p><%= link_to "Все задачи", problems_path %></p>
+<ul class="left-menu">
+  <li><%= link_to "Все задачи", problems_path %></li>
   <% if user_signed_in? && current_user.role == "student" %>
-      <p><%= link_to "Мои решения", solutions_mine_path %></p>
+      <li><%= link_to "Мои решения", solutions_mine_path %></li>
   <% end %>
-  <p><%= link_to "Таблица баллов", users_path %></p>
+  <li><%= link_to "Таблица баллов", users_path %></li>
 
-  <p><%= link_to "Новости", news_path %></p>
+  <li><%= link_to "Новости", news_path %></li>
 
-  <p><%= link_to "Сообщения", posts_path %></p>
+  <li><%= link_to "Сообщения", posts_path %></li>
 
   <% if can? :create, Post %>
-      <%= link_to 'Новое сообщение', new_post_path %>
+      <li><%= link_to 'Новое сообщение', new_post_path %></li>
   <% end %>
 
   <% if can? :create, Problem %>
-      <p><%= link_to "Добавить задачу", new_problem_path %></p>
+      <li><%= link_to "Добавить задачу", new_problem_path %></li>
 
-      <p><%= link_to "Непроверенные решения", solutions_unverified_path %></p>
+      <li><%= link_to "Непроверенные решения", solutions_unverified_path %></li>
 
-      <p><%= link_to "Все решения", solutions_path %></p>
+      <li><%= link_to "Все решения", solutions_path %></li>
   <% end %>
-</div>
+</ul>
 
 <div id="yield">
   <%= yield %>

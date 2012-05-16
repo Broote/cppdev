@@ -1,4 +1,4 @@
-body { background-color: #fff; color: #333; }
+body { background-color: #fff; color: #333;   font-family: Arial,Tahoma,sans-serif; }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -14,11 +14,31 @@ pre {
 
 h1 {
   margin-bottom: 30px;
+  color: #709237;
+  font-size: 25px;
+  text-shadow: 1px 1px 1px #EBEBEB;
+
 }
 
-a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
+h3 {
+  font-size: 20px;
+  color: #709237;
+  font-weight: normal;
+  text-shadow: 1px 1px 1px #EBEBEB;
+}
+
+
+ul {
+  list-style: none;
+  a:link, a:visited {
+    color: #1986AE;
+    text-decoration: none;
+  }
+}
+
+a { color: #6DA3BD; }
+//a:visited { color: #666; }
+a:hover { color: #4D7285; }
 
 div.field, div.actions {
   margin-bottom: 10px;
@@ -27,9 +47,9 @@ div.field, div.actions {
 #images {
   position:absolute;
   left:0px;
-  height:100px;
-  right:500px;
-  background-image: url('lambda1.png');
+  height:75px;
+  right:422px;
+  background-image: url('mmf.gif');
   display: block;
 
 }
@@ -39,6 +59,8 @@ div.field, div.actions {
   right:40px;
   text-align:right;
   padding: 7px;
+  font-size: 11px;
+  p { font-size: 11px; }
 }
 
 #yield {
@@ -48,11 +70,27 @@ div.field, div.actions {
   padding: 7px;
 }
 
-#right-menu {
+
+
+.left-menu {
+  border-top: 1px solid #3AABD3;
   position:absolute;
   top:100px;
-  left:0px;
-  padding: 20px;
+  left:0;
+  padding: 0px;
+  margin-top: 20px;
+  margin-left: 20px;
+  li a{
+    line-height:31px;
+    border-bottom: 1px solid #3AABD3;
+    display: block;
+    padding: 0 8px;
+  }
+  li a:hover {
+    color: #1E596E; /* цвет текста */
+    background-color: #eeeeee; /* фоновый цвет */
+  }
+  //a:hover { color: #2F8BAB; background-color:#eeeeee; }
 }
 
 #users {

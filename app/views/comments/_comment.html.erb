@@ -1,11 +1,12 @@
 <div class="comment"><p>
   <b><%= comment.user.first_name + " " + comment.user.last_name %></b>
-  <% if can? :destroy, comment || comment.user==current_user %>
-      <td><%= link_to 'Удалить', [@post, comment], :confirm => 'Вы уверены?', :method => :delete %></td>
-  <% end %>
-  </p>
+
+</p>
 
   <p>
     <%= comment.body %>
+    <% if can? :destroy, comment || comment.user==current_user %>
+      <td><%= link_to 'Удалить', [@post, comment], :confirm => 'Вы уверены?', :method => :delete %></td>
+  <% end %>
   </p>
 </div>
