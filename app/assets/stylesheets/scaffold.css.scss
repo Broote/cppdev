@@ -90,6 +90,14 @@ div.field, div.actions {
     color: #1E596E; /* цвет текста */
     background-color: #eeeeee; /* фоновый цвет */
   }
+  li span{
+    line-height:31px;
+    border-bottom: 1px solid #3AABD3;
+    display: block;
+    padding: 0 8px;
+    color: white;
+    background-color: #44B5DD;
+  }
   //a:hover { color: #2F8BAB; background-color:#eeeeee; }
 }
 
@@ -102,12 +110,39 @@ div.field, div.actions {
   color: green;
 }
 
-.s-table {
-  width: 100%;
-  /*td { padding:0px; }*/
-  /*.one { width: 200px; }*/
-  /*.two { width: 50%; }
-  .three { width: 80px; } */
+.problem-table {
+  //margin-right: 200px;
+  //width: 800px;
+  .odd {
+      background-color: #eeeeee;
+      td a:hover {
+        color: #1E596E; /* цвет текста */
+        background-color: #D6D6D6; /* фоновый цвет */
+      }
+   }
+  .one {
+      text-align: center;
+      width: 120px;
+  }
+  .three { width: 130px; }
+  tr { height: 40px; vertical-align: middle;}
+  td a {
+      width: 145px;
+      height: 40px;
+      display: block;
+      padding-top: 20px;
+  }
+  td a:hover {
+    color: #1E596E; /* цвет текста */
+    background-color: #EAEAEA; /* фоновый цвет */
+  }
+  td.change a, td.delete a, td.solve a, td.solutions a{
+      width: 40px;
+      padding: 10px;
+
+   }
+
+  img { width:40px; }
 }
 
 .comment {

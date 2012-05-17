@@ -31,26 +31,73 @@
 </div>
 
 <ul class="left-menu">
-  <li><%= link_to "Все задачи", problems_path %></li>
+  <li>
+    <% unless current_page?(problems_path) %>
+        <%= link_to "Все задачи", problems_path %>
+    <% else %>
+        <span>Все задачи</span>
+    <% end %>
+  </li>
   <% if user_signed_in? && current_user.role == "student" %>
-      <li><%= link_to "Мои решения", solutions_mine_path %></li>
+      <li>
+        <% unless current_page?(solutions_mine_path) %>
+            <%= link_to "Мои решения", solutions_mine_path %>
+        <% else %>
+            <span>Мои решения</span>
+        <% end %></li>
   <% end %>
-  <li><%= link_to "Таблица баллов", users_path %></li>
+  <li>
+    <% unless current_page?(users_path) %>
+        <%= link_to "Таблица баллов", users_path %>
+    <% else %>
+        <span>Таблица баллов</span>
+    <% end %></li>
 
-  <li><%= link_to "Новости", news_path %></li>
+  <li>
+    <% unless current_page?(news_path) %>
+        <%= link_to "Новости", news_path %>
+    <% else %>
+        <span>Новости</span>
+    <% end %></li>
 
-  <li><%= link_to "Сообщения", posts_path %></li>
+  <li>
+    <% unless current_page?(posts_path) %>
+        <%= link_to "Сообщения", posts_path %>
+    <% else %>
+        <span>Сообщения</span>
+    <% end %></li>
+  </li>
 
   <% if can? :create, Post %>
-      <li><%= link_to 'Новое сообщение', new_post_path %></li>
+      <li>
+        <% unless current_page?(new_post_path) %>
+            <%= link_to 'Новое сообщение', new_post_path %>
+        <% else %>
+            <span>Новое сообщение</span>
+        <% end %></li>
   <% end %>
 
   <% if can? :create, Problem %>
-      <li><%= link_to "Добавить задачу", new_problem_path %></li>
+      <li>
+        <% unless current_page?(new_problem_path) %>
+            <%= link_to "Добавить задачу", new_problem_path %>
+        <% else %>
+            <span>Добавить задачу</span>
+        <% end %></li>
 
-      <li><%= link_to "Непроверенные решения", solutions_unverified_path %></li>
+      <li>
+        <% unless current_page?(solutions_unverified_path) %>
+            <%= link_to "Непроверенные решения", solutions_unverified_path %>
+        <% else %>
+            <span>Непроверенные решения</span>
+        <% end %></li>
 
-      <li><%= link_to "Все решения", solutions_path %></li>
+      <li>
+        <% unless current_page?(solutions_path) %>
+            <%= link_to "Все решения", solutions_path %>
+        <% else %>
+            <span>Все решения</span>
+        <% end %></li>
   <% end %>
 </ul>
 
